@@ -96,7 +96,7 @@ valid_em
 
 ### Comment Standards
 
-**Python**
+**Python:**
 
 | Prefix    | Purpose                                           |
 |-----------|---------------------------------------------------|
@@ -107,7 +107,7 @@ valid_em
 | `# ##~:`  | Workaround, hack, temporary fix.                  |
 | `# ##&:`  | Dependency, external API behavior, library quirk. |
 
-**JavaScript / TypeScript**
+**JavaScript / TypeScript:**
 
 | Prefix     | Purpose                                           |
 |------------|---------------------------------------------------|
@@ -225,7 +225,7 @@ def critical_function(data: dict[str, Any]) -> Result:
 
 ### JavaScript/TypeScript
 
-#### Naming Conventions
+#### JS Naming Conventions
 
 ```javascript
 // Variables/Functions: camelCase
