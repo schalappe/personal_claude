@@ -55,6 +55,7 @@ Use global-standards skill.
    - Architectural decisions that affect refactoring approach
 
 Your output should include:
+
 - The refactored code
 - A concise summary of changes made, both at a high and low level (1-2 sentences per refactored feature)
 - Explanation of how each change improves the code

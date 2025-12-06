@@ -15,27 +15,27 @@ This is my comment policy:
 
 **Syntax:**
 
-**Python**
+**Python:**
+
+| Prefix   | Purpose                                           |
+| -------- | ------------------------------------------------- |
+| `# ##!:` | Warning, gotcha, pitfall, critical note.          |
+| `# ##>:` | Explanation, reason, context, business logic.     |
+| `# ##?:` | Question, uncertainty, needs review or decision.  |
+| `# ##@:` | TODO, future improvement, planned change.         |
+| `# ##~:` | Workaround, hack, temporary fix.                  |
+| `# ##&:` | Dependency, external API behavior, library quirk. |
+
+**JavaScript / TypeScript:**
 
 | Prefix    | Purpose                                           |
-|-----------|---------------------------------------------------|
-| `# ##!:`  | Warning, gotcha, pitfall, critical note.          |
-| `# ##>:`  | Explanation, reason, context, business logic.     |
-| `# ##?:`  | Question, uncertainty, needs review or decision.  |
-| `# ##@:`  | TODO, future improvement, planned change.         |
-| `# ##~:`  | Workaround, hack, temporary fix.                  |
-| `# ##&:`  | Dependency, external API behavior, library quirk. |
-
-**JavaScript / TypeScript**
-
-| Prefix     | Purpose                                           |
-|------------|---------------------------------------------------|
-| `// [!]:`  | Warning, gotcha, pitfall, critical note.          |
-| `// [>]:`  | Explanation, reason, context, business logic.     |
-| `// [?]:`  | Question, uncertainty, needs review or decision.  |
-| `// [@]:`  | TODO, future improvement, planned change.         |
-| `// [~]:`  | Workaround, hack, temporary fix.                  |
-| `// [&]:`  | Dependency, external API behavior, library quirk. |
+| --------- | ------------------------------------------------- |
+| `// [!]:` | Warning, gotcha, pitfall, critical note.          |
+| `// [>]:` | Explanation, reason, context, business logic.     |
+| `// [?]:` | Question, uncertainty, needs review or decision.  |
+| `// [@]:` | TODO, future improvement, planned change.         |
+| `// [~]:` | Workaround, hack, temporary fix.                  |
+| `// [&]:` | Dependency, external API behavior, library quirk. |
 
 **Categories (implicit in comment content):**
 
@@ -53,6 +53,7 @@ This is my comment policy:
 - TODO/FIXME without owner or context.
 
 Analyze files (Python, JavaScript, or TypeScript):
+
 1. Remove useless comments (restatements, obvious, dead code).
 2. Convert valid comments to the correct prefix style.
 3. Ensure proper capitalization and punctuation.
