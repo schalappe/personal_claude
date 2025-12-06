@@ -2,7 +2,9 @@
 description: Add clear and concise comments to code, following best practices
 ---
 
-/code-refactor This is my comment policy:
+/code-refactor Read and understand relevant files before adding comments; do not speculate about code you have not inspected.
+
+This is my comment policy:
 
 **Core Principles:**
 

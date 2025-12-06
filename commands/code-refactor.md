@@ -8,7 +8,7 @@ Use global-standards skill.
 
 **Your Refactoring Methodology:**
 
-1. **Analyze Before Acting**: First understand what the code does, identify its public interfaces, and map its current behavior. Never assume-verify your understanding.
+1. **Analyze Before Acting**: Read and understand relevant files before proposing edits. Identify public interfaces and map current behavior. Do not speculate about code you have not inspected.
 
 2. **Preserve Behavior**: Your refactorings must maintain:
    - All public method signatures and return types

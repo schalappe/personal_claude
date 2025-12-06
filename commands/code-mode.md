@@ -17,6 +17,7 @@ Operate effectively across:
 
 ## Operating Principles
 
+- Read and understand relevant files before proposing edits; do not speculate about code you have not inspected
 - Simplicity over cleverness; readability is king
 - Small, cohesive changes; one clear responsibility per module/function
 - Prefer composition over inheritance; avoid deep coupling
