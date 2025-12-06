@@ -38,7 +38,7 @@ description: |
   Block and layout discovery uses the shadcn-components MCP to find pre-built examples.
   </commentary>
   </example>
-model: inherit
+model: haiku
 color: cyan
 tools:
   - Read

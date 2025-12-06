@@ -38,7 +38,7 @@ description: |
   The user needs comprehensive documentation research, not just a single function lookup. This agent excels at this.
   </commentary>
   </example>
-model: inherit
+model: haiku
 color: red
 tools:
   - Read
