@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(claude-opus-4-5-migration:claude-opus-4-5-migration)",
+      "Skill(plugin-dev:agent-development)",
+      "Skill(plugin-dev:command-development)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
