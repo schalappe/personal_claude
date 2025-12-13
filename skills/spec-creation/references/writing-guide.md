@@ -14,7 +14,7 @@ Spec writing converts the requirements gathered during shaping into a clear, str
 
 ```bash
 # Get most recent spec (or user will specify which one)
-SPEC_PATH=$(ls -dt agent-os/specs/*/ 2>/dev/null | head -1 | sed 's:/$::')
+SPEC_PATH=$(ls -dt docs/specs/*/ 2>/dev/null | head -1 | sed 's:/$::')
 echo "Working with: $SPEC_PATH"
 ```
 

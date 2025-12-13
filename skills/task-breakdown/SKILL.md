@@ -47,8 +47,8 @@ When encountering a large task, decompose it into 3-7 smaller tasks. See `refere
 
 **Required Files** (need at least one):
 
-- `agent-os/specs/[spec-name]/spec.md` - Full feature specification
-- `agent-os/specs/[spec-name]/planning/requirements.md` - Detailed requirements
+- `docs/specs/[spec-name]/spec.md` - Full feature specification
+- `docs/specs/[spec-name]/planning/requirements.md` - Detailed requirements
 
 **Analysis Steps:**
 
@@ -226,7 +226,7 @@ If the spec includes visual designs, reference them in tasks:
 After creating tasks, output:
 
 ```markdown
-The tasks list has been created at `agent-os/specs/[spec-name]/tasks.md`.
+The tasks list has been created at `docs/specs/[spec-name]/tasks.md`.
 
 Review it closely to make sure it all looks good.
 

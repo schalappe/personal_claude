@@ -76,7 +76,7 @@ For detailed writing workflow, see `references/writing-guide.md`.
 Every spec creates this structure:
 
 ```text
-agent-os/specs/YYYY-MM-DD-feature-name/
+docs/specs/YYYY-MM-DD-feature-name/
 ├── planning/
 │   ├── requirements.md       # All gathered requirements
 │   └── visuals/              # Mockups, wireframes, screenshots

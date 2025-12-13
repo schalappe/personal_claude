@@ -14,7 +14,7 @@ Spec shaping transforms a vague feature idea into documented, validated requirem
 
 **If no description**:
 
-1. Read `agent-os/product/roadmap.md`
+1. Read `docs/product/roadmap.md`
 2. Find the next planned feature
 3. Present to user: "The roadmap shows [X] is next. Proceed with that or provide your own?"
 4. **STOP and wait for user response**
@@ -27,7 +27,7 @@ Create dated spec folder structure:
 TODAY=$(date +%Y-%m-%d)
 SPEC_NAME="kebab-case-feature-name"
 DATED_SPEC_NAME="${TODAY}-${SPEC_NAME}"
-SPEC_PATH="agent-os/specs/$DATED_SPEC_NAME"
+SPEC_PATH="docs/specs/$DATED_SPEC_NAME"
 
 mkdir -p $SPEC_PATH/planning
 mkdir -p $SPEC_PATH/planning/visuals
@@ -44,21 +44,21 @@ mkdir -p $SPEC_PATH/implementation
 
 Before asking questions, read these files to understand context:
 
-**`agent-os/product/mission.md`**:
+**`docs/product/mission.md`**:
 
 - Product's overall mission and purpose
 - Target users and primary use cases
 - Core problems being solved
 - How users benefit
 
-**`agent-os/product/roadmap.md`**:
+**`docs/product/roadmap.md`**:
 
 - Already completed features
 - Current product state
 - Where this feature fits
 - Related features for context
 
-**`agent-os/product/tech-stack.md`**:
+**`docs/product/tech-stack.md`**:
 
 - Technologies and frameworks in use
 - Technical constraints
@@ -332,7 +332,7 @@ Run `/write-spec` to create the spec.md document.
 ```bash
 # Asked about visuals, user said "no"
 # But MUST check anyway:
-ls -la agent-os/specs/2025-11-16-feature/planning/visuals/
+ls -la docs/specs/2025-11-16-feature/planning/visuals/
 
 # Finds: mockup.png, wireframe.jpg
 

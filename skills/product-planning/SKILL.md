@@ -24,9 +24,9 @@ Execute four sequential phases, completing each fully before proceeding:
 | Phase                  | Output                           | Purpose                    |
 | ---------------------- | -------------------------------- | -------------------------- |
 | 1. Gather Information  | User inputs                      | Collect product details    |
-| 2. Create Mission      | `agent-os/product/mission.md`    | Define vision and strategy |
-| 3. Build Roadmap       | `agent-os/product/roadmap.md`    | Prioritize features        |
-| 4. Document Tech Stack | `agent-os/product/tech-stack.md` | Record technical choices   |
+| 2. Create Mission      | `docs/product/mission.md`    | Define vision and strategy |
+| 3. Build Roadmap       | `docs/product/roadmap.md`    | Prioritize features        |
+| 4. Document Tech Stack | `docs/product/tech-stack.md` | Record technical choices   |
 
 ## Phase 1: Gather Product Information
 
@@ -41,7 +41,7 @@ Collect comprehensive details before creating documentation.
 
 ### Process
 
-1. Check if `agent-os/product/` directory exists
+1. Check if `docs/product/` directory exists
 2. If exists, ask whether to review existing docs or start fresh
 3. Prompt for missing required information
 4. Confirm all information before proceeding
@@ -70,7 +70,7 @@ Ready to proceed to creating the mission document?
 
 ## Phase 2: Create Mission Document
 
-Generate `agent-os/product/mission.md` with comprehensive product definition.
+Generate `docs/product/mission.md` with comprehensive product definition.
 
 ### Mission Structure
 
@@ -94,7 +94,7 @@ Generate `agent-os/product/mission.md` with comprehensive product definition.
 ### Completion Message
 
 ```markdown
-I have documented the product mission at `agent-os/product/mission.md`.
+I have documented the product mission at `docs/product/mission.md`.
 
 Review it to ensure it matches your vision and strategic goals.
 
@@ -103,7 +103,7 @@ Ready to proceed to creating the roadmap?
 
 ## Phase 3: Build Roadmap
 
-Generate `agent-os/product/roadmap.md` with prioritized feature checklist.
+Generate `docs/product/roadmap.md` with prioritized feature checklist.
 
 ### Process
 
@@ -146,7 +146,7 @@ Generate `agent-os/product/roadmap.md` with prioritized feature checklist.
 ### Completion Message
 
 ```markdown
-I have documented the product roadmap at `agent-os/product/roadmap.md`.
+I have documented the product roadmap at `docs/product/roadmap.md`.
 
 Review it to ensure it aligns with how you see the product roadmap.
 
@@ -155,7 +155,7 @@ Ready to proceed to documenting the tech stack?
 
 ## Phase 4: Document Tech Stack
 
-Generate `agent-os/product/tech-stack.md` with comprehensive technical choices.
+Generate `docs/product/tech-stack.md` with comprehensive technical choices.
 
 ### Information Sources (Priority Order)
 
@@ -175,7 +175,7 @@ Generate `agent-os/product/tech-stack.md` with comprehensive technical choices.
 ### Completion Message
 
 ```markdown
-I have documented the product's tech stack at `agent-os/product/tech-stack.md`.
+I have documented the product's tech stack at `docs/product/tech-stack.md`.
 
 Review it to ensure all tech stack details are correct.
 
