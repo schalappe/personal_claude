@@ -1,7 +1,7 @@
 ---
 description: Create comprehensive specification document from gathered requirements
 argument-hint: [spec-name]
-allowed-tools: Read, Write, Glob, Grep, Bash(ls:*), Task, Skill, TodoWrite
+allowed-tools: Read, Write, Glob, Grep, Bash(ls:*, test:*, sed:*), Task, Skill, TodoWrite
 ---
 
 # Write Spec
@@ -25,17 +25,25 @@ Transform gathered requirements into a comprehensive specification document by e
 
 ### Locate Spec Folder
 
-```bash
-SPEC_PATH=$(ls -dt docs/specs/*/ 2>/dev/null | head -1 | sed 's:/$::')
-ls -la $SPEC_PATH/planning/
-```
+Find most recent spec: ❯`ls -dt docs/specs/*/ 2>/dev/null | head -1 | sed 's:/$::'`
 
-If argument provided, use that spec name instead.
+If argument provided, use `docs/specs/*[spec-name]*` instead.
+
+List planning contents: ❯`ls -la [spec-path]/planning/`
+
+### Validate Requirements Exist
+
+Check requirements: ❯`test -f [spec-path]/planning/requirements.md && echo "EXISTS" || echo "MISSING"`
+
+**Validation:**
+
+- If `MISSING` → Stop and instruct: "No requirements found at `[spec-path]/planning/requirements.md`. Run `/shape-spec` first to gather requirements."
+- If `EXISTS` → Proceed
 
 ### Read Requirements
 
-1. Read `[spec-path]/planning/requirements.md`
-2. Check for visual assets in `[spec-path]/planning/visuals/`
+1. Read @[spec-path]/planning/requirements.md
+2. Check for visual assets: ❯`ls [spec-path]/planning/visuals/ 2>/dev/null || echo "NO_VISUALS"`
 3. Parse: feature description, scope boundaries, constraints, similar features mentioned
 
 ---

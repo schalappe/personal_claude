@@ -1,7 +1,7 @@
 ---
 description: Implement a single task group from tasks.md using a multi-phase workflow that ensures deep codebase understanding, thoughtful architecture design, and high-quality implementation
 argument-hint: [spec-name] [task-group-number]
-allowed-tools: Read, Write, Edit, Glob, Grep, Bash, Task, Skill, AskUserQuestion, TodoWrite
+allowed-tools: Read, Write, Edit, Glob, Grep, Bash(git:*, npm:*, bun:*, pnpm:*, yarn:*, make:*, ls:*, test:*, mkdir:*), Task, Skill, AskUserQuestion, TodoWrite
 ---
 
 # Implement Task
@@ -44,11 +44,22 @@ Initialize todos for all phases.
 
 ### Locate Spec and Tasks
 
-```bash
-ls docs/specs/*/tasks.md 2>/dev/null
-```
+Find specs with tasks: ❯`ls docs/specs/*/tasks.md 2>/dev/null || echo "NO_TASKS"`
 
-If multiple specs exist, ask which to work on.
+**Validation:**
+
+- If `NO_TASKS` → Stop: "No tasks.md found. Run `/create-tasks` first to generate implementation tasks."
+- If multiple specs → Ask which to work on
+- If one spec → Use that spec
+
+### Validate Tasks File
+
+Check tasks exist: ❯`test -f [spec-path]/tasks.md && echo "EXISTS" || echo "MISSING"`
+
+**Validation:**
+
+- If `MISSING` → Stop: "No tasks.md at `[spec-path]`. Run `/create-tasks [spec-name]` first."
+- If `EXISTS` → Read @[spec-path]/tasks.md
 
 ### Select Task Group
 
@@ -71,8 +82,8 @@ Available task groups:
 
 ### Analyze Task Requirements
 
-1. Read the selected task group from tasks.md
-2. Read `spec.md` and `planning/requirements.md` for context
+1. Read the selected task group from @[spec-path]/tasks.md
+2. Read @[spec-path]/spec.md and @[spec-path]/planning/requirements.md for context
 3. Identify key codebase areas that will be affected
 
 ### Launch Code Explorers

@@ -1,7 +1,7 @@
 ---
 description: Plan and document the mission, roadmap, and tech stack for the current product
 argument-hint: [product-name]
-allowed-tools: Read, Write, Glob, Bash(ls:*, mkdir:*), Skill, AskUserQuestion, TodoWrite
+allowed-tools: Read, Write, Glob, Bash(ls:*, mkdir:*, test:*), Skill, AskUserQuestion, TodoWrite
 ---
 
 # Plan Product
@@ -26,11 +26,14 @@ Create foundational product documentation: mission, roadmap, and tech stack. Thi
 
 ### Check Existing Documentation
 
-```bash
-ls -la docs/product/ 2>/dev/null || echo "No existing product documentation"
-```
+Check for existing docs: ❯`ls -la docs/product/ 2>/dev/null || echo "NO_DOCS"`
 
-If documentation exists, ask the user whether to review or start fresh.
+**Validation:**
+
+- If docs exist → Ask user: "Product documentation exists. Review and update, or start fresh?"
+- If `NO_DOCS` → Proceed to collect information
+
+**Wait for user response if docs exist.**
 
 ### Collect Required Information
 
@@ -189,8 +192,8 @@ Review to ensure alignment. Ready for Phase 4?
 
 1. Note any user-provided tech stack preferences from this conversation
 2. Fill gaps from these sources (in order):
-   - User's global standards: `~/.claude/CLAUDE.md`
-   - Project documentation: `CLAUDE.md`, `agents.md`
+   - User's global standards: @~/.claude/CLAUDE.md
+   - Project documentation: @CLAUDE.md
 
 ### Create Tech Stack Document
 

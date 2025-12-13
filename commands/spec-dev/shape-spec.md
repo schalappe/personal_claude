@@ -1,7 +1,7 @@
 ---
 description: Shape and plan a new feature specification through guided requirements gathering
 argument-hint: [feature-description]
-allowed-tools: Read, Write, Glob, Bash(ls:*, mkdir:*, date:*), Task, Skill, AskUserQuestion, TodoWrite
+allowed-tools: Read, Write, Glob, Bash(ls:*, mkdir:*, date:*, test:*, grep:*), Task, Skill, AskUserQuestion, TodoWrite
 ---
 
 # Shape Spec
@@ -30,8 +30,13 @@ Gather and document requirements for a new feature through structured questionin
 
 **Otherwise:**
 
-1. Check `docs/product/roadmap.md` for the next feature
-2. Ask the user:
+1. Check roadmap exists: ❯`test -f docs/product/roadmap.md && echo "EXISTS" || echo "MISSING"`
+
+2. **Validation:**
+   - If `MISSING` → Warn: "No roadmap found. Run `/plan-product` first, or describe the feature you want to spec."
+   - If `EXISTS` → Read @docs/product/roadmap.md and identify the next unchecked feature
+
+3. Ask the user:
 
    ```markdown
    Which feature would you like to spec?
@@ -40,18 +45,17 @@ Gather and document requirements for a new feature through structured questionin
    - Or describe a different feature.
    ```
 
-3. **Wait for user response before proceeding**
+4. **Wait for user response before proceeding**
 
 ### Create Folder Structure
 
-```bash
-TODAY=$(date +%Y-%m-%d)
-SPEC_NAME="[kebab-case-name]"
-SPEC_PATH="docs/specs/${TODAY}-${SPEC_NAME}"
+Get today's date: ❯`date +%Y-%m-%d`
 
-mkdir -p $SPEC_PATH/planning/visuals
-mkdir -p $SPEC_PATH/implementation
-```
+Create spec folder structure:
+❯`mkdir -p docs/specs/[DATE]-[kebab-case-name]/planning/visuals`
+❯`mkdir -p docs/specs/[DATE]-[kebab-case-name]/implementation`
+
+Replace `[DATE]` with the date output and `[kebab-case-name]` with the feature name.
 
 Output:
 
@@ -76,11 +80,13 @@ Invoke the **spec-creation** skill before proceeding.
 
 Read these files to understand broader context:
 
-| Document                     | What to Extract                         |
-| ---------------------------- | --------------------------------------- |
-| `docs/product/mission.md`    | Mission, target users, core problems    |
-| `docs/product/roadmap.md`    | Completed features, where this fits     |
-| `docs/product/tech-stack.md` | Technologies, constraints, capabilities |
+| Document                      | What to Extract                         |
+| ----------------------------- | --------------------------------------- |
+| @docs/product/mission.md      | Mission, target users, core problems    |
+| @docs/product/roadmap.md      | Completed features, where this fits     |
+| @docs/product/tech-stack.md   | Technologies, constraints, capabilities |
+
+**Validation:** If any file is missing, note it but continue — not all projects have complete product docs.
 
 ### Generate Clarifying Questions
 
@@ -124,9 +130,7 @@ After receiving answers:
 
 2. **MANDATORY: Check for visual assets** (users often add files without mentioning):
 
-   ```bash
-   ls -la [spec-path]/planning/visuals/ 2>/dev/null | grep -E '\.(png|jpg|jpeg|gif|svg|pdf|md)$' || echo "No visual files found"
-   ```
+   Check visuals folder: ❯`ls -la [spec-path]/planning/visuals/ 2>/dev/null | grep -E '\.(png|jpg|jpeg|gif|svg|pdf|md)$' || echo "NO_VISUALS"`
 
 3. If visual files found:
    - Use Read tool to analyze each file

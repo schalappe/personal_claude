@@ -1,7 +1,7 @@
 ---
 description: Create an actionable tasks breakdown from a spec and requirements for a new feature
 argument-hint: [spec-name]
-allowed-tools: Read, Write, Glob, Grep, Bash(ls:*, mkdir:*), Skill, TodoWrite
+allowed-tools: Read, Write, Glob, Grep, Bash(ls:*, mkdir:*, test:*, sed:*), Skill, TodoWrite
 ---
 
 # Create Tasks
@@ -26,26 +26,24 @@ Transform specifications into an actionable task list with strategic grouping, o
 
 ### Locate Required Files
 
-```bash
-SPEC_PATH=$(ls -dt docs/specs/*/ 2>/dev/null | head -1 | sed 's:/$::')
-ls $SPEC_PATH/spec.md $SPEC_PATH/planning/requirements.md 2>/dev/null
-```
+Find most recent spec: ❯`ls -dt docs/specs/*/ 2>/dev/null | head -1 | sed 's:/$::'`
 
-If argument provided, use that spec name.
+If argument provided, use `docs/specs/*[spec-name]*` instead.
 
 ### Validate Availability
 
-If neither spec.md nor requirements.md exists:
+Check for spec or requirements:
+❯`test -f [spec-path]/spec.md && echo "SPEC_EXISTS"`
+❯`test -f [spec-path]/planning/requirements.md && echo "REQ_EXISTS"`
 
-```markdown
-I need a spec.md or requirements.md to create tasks.
+**Validation:**
 
-Please direct me to the spec folder, or run `/shape-spec` or `/write-spec` first.
-```
+- If neither exists → Stop: "I need a spec.md or requirements.md to create tasks. Run `/shape-spec` or `/write-spec` first."
+- If at least one exists → Proceed
 
 ### Read and Analyze
 
-1. Read `spec.md` and/or `requirements.md`
+1. Read @[spec-path]/spec.md (if exists) and/or @[spec-path]/planning/requirements.md
 2. Note: specific requirements, architecture approach, existing code to leverage, out-of-scope items
 
 ---
@@ -195,8 +193,8 @@ Total Tasks: [count]
 
 Check user's coding standards from:
 
-- `~/.claude/CLAUDE.md`
-- `CLAUDE.md` (project-level)
+- @~/.claude/CLAUDE.md (global standards)
+- @CLAUDE.md (project-level)
 
 Ensure tasks align and do not conflict with user preferences.
 
