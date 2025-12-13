@@ -1,6 +1,6 @@
 # Mission Document Template
 
-Use this template when creating `agent-os/product/mission.md`.
+Use this template when creating `docs/product/mission.md`.
 
 ## Complete Structure
 

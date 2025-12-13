@@ -15,7 +15,7 @@ A good roadmap:
 
 ### 1. Review the Mission
 
-Before creating the roadmap, read `agent-os/product/mission.md` to understand:
+Before creating the roadmap, read `docs/product/mission.md` to understand:
 
 - Product goals and vision
 - Target users and their needs

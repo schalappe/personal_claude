@@ -1,6 +1,6 @@
 # Tech Stack Documentation Template
 
-Use this guide when creating `agent-os/product/tech-stack.md`.
+Use this guide when creating `docs/product/tech-stack.md`.
 
 ## Purpose
 
