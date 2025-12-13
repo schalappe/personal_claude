@@ -1,53 +1,35 @@
 ---
-description: Cleans up all git branches marked as [gone] (branches that have been deleted on the remote but still exist locally), including removing associated worktrees.
+description: Clean up local branches deleted from remote, including worktrees
+allowed-tools: Bash(git branch:*), Bash(git worktree:*)
 ---
 
-## Your Task
+# Clean Up [gone] Branches
 
-You need to execute the following bash commands to clean up stale local branches that have been deleted from the remote repository.
+## Context
 
-## Commands to Execute
+Current branches: !`git branch -v`
+Current worktrees: !`git worktree list`
 
-1. **First, list branches to identify any with [gone] status**
-   Execute this command:
+## Task
+
+Clean up all local branches marked as `[gone]` (deleted from remote but still exist locally).
+
+### Execution Steps
+
+1. **Identify [gone] branches** from the context above
+   - Branches with `+` prefix have associated worktrees
+
+2. **For each [gone] branch**, execute sequentially:
+
    ```bash
-   git branch -v
-   ```
-   
-   Note: Branches with a '+' prefix have associated worktrees and must have their worktrees removed before deletion.
-
-2. **Next, identify worktrees that need to be removed for [gone] branches**
-   Execute this command:
-   ```bash
-   git worktree list
-   ```
-
-3. **Finally, remove worktrees and delete [gone] branches (handles both regular and worktree branches)**
-   Execute this command:
-   ```bash
-   # Process all [gone] branches, removing '+' prefix if present
-   git branch -v | grep '\[gone\]' | sed 's/^[+* ]//' | awk '{print $1}' | while read branch; do
-     echo "Processing branch: $branch"
-     # Find and remove worktree if it exists
-     worktree=$(git worktree list | grep "\\[$branch\\]" | awk '{print $1}')
-     if [ ! -z "$worktree" ] && [ "$worktree" != "$(git rev-parse --show-toplevel)" ]; then
-       echo "  Removing worktree: $worktree"
-       git worktree remove --force "$worktree"
-     fi
-     # Delete the branch
-     echo "  Deleting branch: $branch"
-     git branch -D "$branch"
-   done
+   # If branch has worktree (not the main worktree), remove it first
+   git worktree remove --force <worktree-path>
+   # Then delete the branch
+   git branch -D <branch-name>
    ```
 
-## Expected Behavior
+3. **Report results**:
+   - List removed worktrees and deleted branches
+   - If no [gone] branches found, report "No cleanup needed"
 
-After executing these commands, you will:
-
-- See a list of all local branches with their status
-- Identify and remove any worktrees associated with [gone] branches
-- Delete all branches marked as [gone]
-- Provide feedback on which worktrees and branches were removed
-
-If no branches are marked as [gone], report that no cleanup was needed.
-
+Execute all operations using Bash tool calls. Do not use any other tools.

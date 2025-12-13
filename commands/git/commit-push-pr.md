@@ -1,20 +1,38 @@
 ---
-allowed-tools: Bash(git checkout --branch:*), Bash(git add:*), Bash(git status:*), Bash(git push:*), Bash(git commit:*), Bash(gh pr create:*)
-description: Commit, push, and open a PR
+description: Commit changes, push branch, and open a pull request
+allowed-tools: Bash(git checkout:*), Bash(git add:*), Bash(git status:*), Bash(git push:*), Bash(git commit:*), Bash(gh pr create:*)
 ---
+
+# Commit, Push, and Create PR
 
 ## Context
 
-- Current git status: !`git status`
-- Current git diff (staged and unstaged changes): !`git diff HEAD`
 - Current branch: !`git branch --show-current`
+- Git status: !`git status`
+- Changes: !`git diff HEAD`
+- Recent commits (for style): !`git log --oneline -5`
 
-## Your task
+## Task
 
-Based on the above changes:
+Execute the complete PR workflow based on the changes above.
 
-1. Create a new branch if on main
-2. Create a single commit with an appropriate message
-3. Push the branch to origin
-4. Create a pull request using `gh pr create`
-5. You have the capability to call multiple tools in a single response. You MUST do all of the above in a single message. Do not use any other tools or do anything else. Do not send any other text or messages besides these tool calls.
+### Execution Steps
+
+1. **Branch check**: If on `main`, create a descriptive feature branch
+2. **Stage & commit**: Add changes and commit with conventional message format:
+   - `type(scope): description` (e.g., `feat(api): add user endpoints`)
+   - Types: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`
+3. **Push**: Push branch to origin with `-u` flag
+4. **Create PR**: Use `gh pr create` with:
+   - Clear title matching commit
+   - Body with Summary and Test Plan sections
+
+### Commit Message Footer
+
+```text
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+```
+
+Execute all steps using parallel Bash tool calls where independent. Do not output any text besides tool calls.

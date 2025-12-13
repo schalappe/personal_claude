@@ -1,17 +1,50 @@
 ---
+description: Stage changes and create a conventional git commit
 allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git commit:*)
-description: Create a git commit
 ---
+
+# Commit Changes
 
 ## Context
 
-- Current git status: !`git status`
-- Current git diff (staged and unstaged changes): !`git diff HEAD`
 - Current branch: !`git branch --show-current`
-- Recent commits: !`git log --oneline -10`
+- Git status: !`git status`
+- Changes: !`git diff HEAD`
+- Recent commits (match style): !`git log --oneline -10`
 
-## Your task
+## Task
 
-Based on the above changes, create a single git commit.
+Create a single commit for the changes above.
 
-You have the capability to call multiple tools in a single response. Stage and create the commit using a single message. Do not use any other tools or do anything else. Do not send any other text or messages besides these tool calls.
+### Validation
+
+If no changes to commit (clean working tree), report "Nothing to commit" and stop.
+
+### Commit Message Format
+
+Use conventional commits: `type(scope): description`
+
+**Types:**
+
+- `feat` - New feature
+- `fix` - Bug fix
+- `docs` - Documentation only
+- `refactor` - Code restructuring (no behavior change)
+- `test` - Adding/updating tests
+- `chore` - Maintenance, dependencies, tooling
+
+**Rules:**
+
+- Subject line under 72 characters
+- Use imperative mood ("add" not "added")
+- Focus on *why* not *what* in body (if needed)
+
+### Commit Message Footer
+
+```text
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+```
+
+Stage all relevant changes and commit. Do not output any text besides tool calls.
