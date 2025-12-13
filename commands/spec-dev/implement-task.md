@@ -77,7 +77,7 @@ Available task groups:
 
 ### Launch Code Explorers
 
-Launch 2-3 `feature-dev:code-explorer` agents **in parallel**:
+Launch 2-3 `code-explorer` agents **in parallel**:
 
 | Agent Focus      | Goal                                       |
 | ---------------- | ------------------------------------------ |
@@ -128,7 +128,7 @@ If user says "whatever you think is best", provide your recommendation and get e
 
 ### Launch Architects
 
-Launch 2-3 `feature-dev:code-architect` agents **in parallel** with different focuses:
+Launch 2-3 `code-architect` agents **in parallel** with different focuses:
 
 | Focus              | Approach                              |
 | ------------------ | ------------------------------------- |
@@ -218,7 +218,7 @@ Create `docs/specs/[spec-name]/implementation/[task-group].md`:
 
 ### Launch Reviewers
 
-Launch 3 `feature-dev:code-reviewer` agents **in parallel**:
+Launch 3 `code-reviewer` agents **in parallel**:
 
 | Focus          | What to Check                  |
 | -------------- | ------------------------------ |

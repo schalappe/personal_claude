@@ -25,7 +25,7 @@ Use global-standards skill.
 
 ## Agent Workflow
 
-Use the following agents from the `feature-dev` plugin throughout implementation:
+Use the following agents throughout implementation:
 
 1. **code-explorer** (Before coding): Launch this agent to understand existing patterns, conventions, and how similar features are implemented. It traces execution paths and maps architecture to inform your approach.
 

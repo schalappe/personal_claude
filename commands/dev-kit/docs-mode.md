@@ -25,7 +25,7 @@ Use codebase-documenter skill.
 
 ## Agent Workflow
 
-Use the following agent from the `feature-dev` plugin to assist documentation:
+Use the following agent to assist documentation:
 
 1. **code-explorer** (Before documenting): Launch this agent to deeply understand the code being documented. It traces execution paths, maps architecture layers, identifies patterns, and documents dependencies - providing the foundation for accurate documentation.
 

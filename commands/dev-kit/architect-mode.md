@@ -23,7 +23,7 @@ Use global-standards skill.
 
 ## Agent Workflow
 
-Use the following agents from the `feature-dev` plugin for architectural analysis:
+Use the following agents for architectural analysis:
 
 1. **code-explorer** (Understanding phase): Launch this agent to deeply analyze the existing codebase. It traces execution paths, maps architecture layers, identifies patterns and abstractions, and documents dependencies - essential for understanding the current state before proposing changes.
 

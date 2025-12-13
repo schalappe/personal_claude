@@ -25,7 +25,7 @@ Use testing-standards skill.
 
 ## Agent Workflow
 
-Use the following agents from the `feature-dev` plugin to assist testing:
+Use the following agents to assist testing:
 
 1. **code-explorer** (Before writing tests): Launch this agent to deeply understand the code being tested. It traces execution paths, identifies edge cases, and maps dependencies that tests should cover.
 

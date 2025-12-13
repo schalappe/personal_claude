@@ -46,7 +46,7 @@ Invoke the **spec-creation** skill before proceeding.
 
 ### Launch Code Explorers
 
-Launch 2-3 `feature-dev:code-explorer` agents **in parallel** using the Task tool:
+Launch 2-3 `code-explorer` agents **in parallel** using the Task tool:
 
 | Agent Focus         | What to Find                                    |
 | ------------------- | ----------------------------------------------- |
@@ -70,7 +70,7 @@ Task 3: code-explorer analyzing [domain] patterns (services, models)
 
 ### Launch Code Architect
 
-Launch `feature-dev:code-architect` agent with:
+Launch `code-architect` agent with:
 
 - Requirements from planning/requirements.md
 - Reusable components identified by explorers

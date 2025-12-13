@@ -21,7 +21,7 @@ Key files: ❯`ls -la *.json *.toml *.yaml *.yml 2>/dev/null | head -5 || echo "
 
 ## Agent Workflow
 
-Use the following agent from the `feature-dev` plugin to assist answering questions:
+Use the following agent to assist answering questions:
 
 1. **code-explorer** (For codebase questions): Launch this agent when answering questions about the codebase. It traces execution paths, maps architecture, identifies patterns, and documents dependencies - providing accurate, thorough answers about how the code works.
 

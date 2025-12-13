@@ -23,13 +23,14 @@ Use global-standards skill.
 
 ## Agent Workflow
 
-Use the following agents from the `feature-dev` plugin to assist debugging:
+Use the following agents to assist debugging:
 
 1. **code-explorer** (Phase 1-2): Launch this agent to trace execution paths related to the bug. It will map the code flow, identify dependencies, and help understand how the buggy code works in context.
 
 2. **code-reviewer** (Phase 3-4): Launch this agent to analyze the suspected code for bugs, logic errors, and potential issues. It provides confidence-rated findings to prioritize investigation.
 
 **Agent invocation pattern:**
+
 - Start with code-explorer to understand the affected code paths
 - Use code-reviewer to systematically identify potential root causes
 - Return findings to inform hypothesis generation
