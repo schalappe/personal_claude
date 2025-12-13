@@ -210,13 +210,20 @@ For detailed workflow instructions, consult:
 - **`references/shaping-guide.md`** - Step-by-step shaping workflow with examples
 - **`references/writing-guide.md`** - Specification writing best practices and template details
 
+### Example Files
+
+Working examples demonstrating expected output format:
+
+- **`examples/sample-requirements.md`** - Complete requirements document from shaping phase
+- **`examples/sample-spec.md`** - Final specification document from writing phase
+
 ## Example Usage Flow
 
 ```bash
 User: "I want to create a spec for user authentication"
 
 Phase 1 - Shaping:
-→ Create spec folder: agent-os/specs/2025-11-16-user-authentication/
+→ Create spec folder: docs/specs/2025-11-16-user-authentication/
 → Read product mission, roadmap, tech stack
 → Generate 6 clarifying questions about auth approach
 → Ask about existing similar features and visual assets
