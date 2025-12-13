@@ -1,23 +1,12 @@
 ---
 name: task-breakdown
 description: This skill should be used when the user asks to "break down a spec into tasks", "create a task list", "plan implementation tasks", "organize development work", "structure feature development", "create implementation phases", or mentions task planning, task organization, or implementation ordering. Transforms feature specifications into actionable, ordered implementation tasks.
+version: 0.1.0
 ---
 
 # Task Breakdown Skill
 
 This skill transforms feature specifications and requirements into actionable implementation tasks. It produces structured task lists organized by layer, with clear dependencies and acceptance criteria.
-
-## When to Use This Skill
-
-Activate this skill when users:
-
-- Ask to break down a spec into implementation tasks
-- Request a task list or implementation plan
-- Need help organizing development work
-- Want to know the order to implement features
-- Ask about implementation strategy or approach
-- Need to plan development phases for a feature
-- Want to group related tasks together
 
 ## Core Philosophy
 
