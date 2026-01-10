@@ -137,6 +137,46 @@ Review to ensure it matches your vision. Ready for Phase 3?
 
 ## Phase 3: Create Roadmap
 
+### Onion Layer Philosophy
+
+The roadmap follows a layered approach where each feature adds a new "ring" around the product:
+
+```text
+        ┌────────────────────────────────────┐
+        │      Advanced Features             │  ← Layer 4: Polish & power features
+        │   ┌────────────────────────────┐   │
+        │   │   Extended Features        │   │  ← Layer 3: Enhanced capabilities
+        │   │   ┌────────────────────┐   │   │
+        │   │   │  Core Features     │   │   │  ← Layer 2: Primary user value
+        │   │   │   ┌────────────┐   │   │   │
+        │   │   │   │ Foundation │   │   │   │  ← Layer 1: Essential infrastructure
+        │   │   │   └────────────┘   │   │   │
+        │   │   └────────────────────┘   │   │
+        │   └────────────────────────────┘   │
+        └────────────────────────────────────┘
+```
+
+**Key Principles:**
+
+1. **Features deliver user value** — A feature provides a service, possibility, or function
+2. **Always functional** — After each feature, the product works; new features never break existing ones
+3. **Standalone completeness** — Each feature is end-to-end (frontend + backend + tests)
+4. **Layered building** — Start with foundation, then build around previous features
+
+### What IS a Feature
+
+- ✅ "Generate API keys" — User gains a capability
+- ✅ "Export data to CSV" — User accomplishes a task
+- ✅ "User authentication" — User can access the product
+
+### What is NOT a Feature
+
+- ❌ "Add a database" — Infrastructure, not user value
+- ❌ "Set up CI/CD" — Developer tooling
+- ❌ "Configure logging" — Operational concern
+
+Technical needs are embedded WITHIN features that require them.
+
 ### Build the Roadmap
 
 Read `docs/product/mission.md` to inform feature ordering.
@@ -146,13 +186,20 @@ Create `docs/product/roadmap.md`:
 ```markdown
 # Product Roadmap
 
-1. [ ] [FEATURE_NAME] — [1-2 sentence description] `[EFFORT]`
-2. [ ] [FEATURE_NAME] — [1-2 sentence description] `[EFFORT]`
-3. [ ] [FEATURE_NAME] — [1-2 sentence description] `[EFFORT]`
+> **Onion Layer Approach:** Each feature adds a layer of capability. The product remains functional after completing any feature.
 
-> **Notes**
-> - Ordered by technical dependencies and product architecture
-> - Each item is an end-to-end functional and testable feature
+## Foundation Layer
+1. [ ] [FEATURE_NAME] — [User value description] `[EFFORT]`
+
+## Core Features Layer
+2. [ ] [FEATURE_NAME] — [User value description] `[EFFORT]`
+3. [ ] [FEATURE_NAME] — [User value description] `[EFFORT]`
+
+## Extended Features Layer
+4. [ ] [FEATURE_NAME] — [User value description] `[EFFORT]`
+
+## Advanced Features Layer
+5. [ ] [FEATURE_NAME] — [User value description] `[EFFORT]`
 ```
 
 **Effort Scale:**
@@ -167,14 +214,17 @@ Create `docs/product/roadmap.md`:
 
 **Ordering Criteria:**
 
-1. Technical dependencies (foundational features first)
-2. Most direct path to achieving the mission
-3. Building incrementally from MVP to full product
+1. **Foundation First** — Features that other features depend on
+2. **Core Value Next** — Primary user capabilities that fulfill the mission
+3. **Extended Capabilities** — Features that enhance but aren't essential
+4. **Polish Last** — Advanced features, optimizations, nice-to-haves
 
 **Constraints:**
 
+- Each feature must deliver user value (not just technical setup)
+- Product must work after completing each feature
 - Do NOT include codebase initialization or bootstrapping tasks
-- Each feature should be testable end-to-end
+- Each feature should be end-to-end (frontend + backend + tests)
 
 Output:
 
@@ -225,5 +275,8 @@ Review to ensure all details are correct.
 - Follow phases sequentially — do not skip ahead
 - Wait for user confirmation before proceeding between phases
 - Focus on user benefits over technical details in mission document
+- **Roadmap follows onion layer philosophy** — each feature adds a layer of capability
+- **Features deliver user value** — no infrastructure-only items
+- **Product stays functional** — completing any feature leaves product working
 - Keep roadmap actionable with effort estimates
 - Reconcile tech stack from multiple sources, prioritizing user input

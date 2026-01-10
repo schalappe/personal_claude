@@ -83,12 +83,58 @@ This results in [MEASURABLE_BENEFIT].
 
 ## Roadmap Structure
 
-`docs/product/roadmap.md` prioritizes features:
+`docs/product/roadmap.md` prioritizes features using the **Onion Layer Philosophy**.
+
+### Onion Layer Philosophy
+
+The roadmap follows a layered approach where each feature adds a new "ring" around the product core:
+
+```text
+        ┌────────────────────────────────────┐
+        │      Advanced Features             │  ← Layer 4: Polish & power features
+        │   ┌────────────────────────────┐   │
+        │   │   Extended Features        │   │  ← Layer 3: Enhanced capabilities
+        │   │   ┌────────────────────┐   │   │
+        │   │   │  Core Features     │   │   │  ← Layer 2: Primary user value
+        │   │   │   ┌────────────┐   │   │   │
+        │   │   │   │ Foundation │   │   │   │  ← Layer 1: Essential infrastructure
+        │   │   │   └────────────┘   │   │   │
+        │   │   └────────────────────┘   │   │
+        │   └────────────────────────────┘   │
+        └────────────────────────────────────┘
+```
+
+**Key Principles:**
+
+1. **Features deliver user value** — A feature provides a service, possibility, or function to the user
+2. **Always functional** — After completing any feature, the product works; new features add capabilities, never break existing ones
+3. **Standalone completeness** — Each feature is end-to-end (frontend + backend + tests) and independently testable
+4. **Layered building** — Start with foundation, then build around previous features until complete
+
+### What IS a Feature
+
+A feature delivers tangible user value:
+
+- ✅ "Generate API keys" — User gains a new capability
+- ✅ "Export data to CSV" — User can accomplish a task
+- ✅ "User authentication" — User can access the product
+- ✅ "Dashboard with analytics" — User sees valuable information
+
+### What is NOT a Feature
+
+Technical setup tasks are NOT features:
+
+- ❌ "Add a database" — Infrastructure, not user value
+- ❌ "Set up CI/CD" — Developer tooling
+- ❌ "Configure logging" — Operational concern
+- ❌ "Install dependencies" — Bootstrapping
+
+These technical needs are embedded WITHIN features that require them.
 
 ### Feature Format
 
 ```markdown
-[#]. [ ] [FEATURE_NAME] — [1-2 sentence description] `[EFFORT]`
+[#]. [ ] [FEATURE_NAME] — [1-2 sentence description of user value] `[EFFORT]`
 ```
 
 ### Effort Scale
@@ -103,13 +149,16 @@ This results in [MEASURABLE_BENEFIT].
 
 ### Ordering Criteria
 
-1. **Technical Dependencies** — Foundational features first
-2. **Mission Alignment** — Most direct path to achieving goals
-3. **Incremental Building** — MVP to full product progression
+1. **Foundation First** — Features that other features depend on
+2. **Core Value Next** — Primary user capabilities that fulfill the mission
+3. **Extended Capabilities** — Features that enhance but aren't essential
+4. **Polish Last** — Advanced features, optimizations, nice-to-haves
 
 ### Roadmap Constraints
 
+- Each item must deliver user value (not just technical setup)
 - Each item must be end-to-end functional and testable
+- Product must work after completing each feature
 - Include both frontend and backend when applicable
 - Do NOT include bootstrapping or initialization tasks
 - Assume bare-bones application already exists
@@ -168,10 +217,12 @@ Before completing each document:
 - [ ] Features focus on user benefits
 
 **Roadmap:**
-- [ ] Features ordered by dependencies
-- [ ] Each item is end-to-end functional
+- [ ] Each feature delivers user value (not technical setup)
+- [ ] Features follow onion layer order (foundation → core → extended → polish)
+- [ ] Product remains functional after completing each feature
+- [ ] Each item is end-to-end (frontend + backend + tests)
 - [ ] Effort estimates are realistic
-- [ ] No bootstrapping tasks included
+- [ ] No bootstrapping or infrastructure-only tasks
 
 **Tech Stack:**
 - [ ] User preferences prioritized
