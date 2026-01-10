@@ -1,75 +1,54 @@
 ---
 name: spec-creation
-description: This skill should be used when the user asks to "create a spec", "write a specification", "plan a feature", "gather requirements", "shape an idea", "spec out [feature]", "document requirements", or mentions needing to prepare feature documentation before development.
+description: This skill should be used when the user asks to "create a spec", "write a specification", "plan a feature", "gather requirements", "shape an idea", "spec out [feature]", "document requirements", or mentions needing to prepare feature documentation before development. Provides philosophy, templates, and quality standards for specification creation.
 ---
 
 # Specification Creation Skill
 
-Create comprehensive, well-structured feature specifications through a proven two-phase workflow: **shaping** (requirements gathering) and **writing** (specification documentation).
+Domain knowledge for creating comprehensive, well-structured feature specifications. This skill provides the philosophy, templates, and quality standards—the `/shape-spec` and `/write-spec` commands provide the step-by-step procedures.
 
 ## Core Philosophy
 
 Spec-driven development ensures:
 
-1. Clear understanding before coding begins
-2. Alignment between user vision and implementation
-3. Reuse of existing code and patterns
-4. Explicit scope boundaries (what's in, what's out)
-5. Visual design alignment when mockups exist
-6. Focused, minimal testing approach
+1. **Clear understanding before coding** — Prevents wasted effort and rework
+2. **Alignment between vision and implementation** — User goals translate to technical specs
+3. **Reuse of existing patterns** — Search codebase before specifying new components
+4. **Explicit scope boundaries** — Define what's in AND what's out
+5. **Focused testing** — Minimal, behavior-focused tests (not exhaustive coverage)
 
-## Two-Phase Workflow Overview
+## Key Principles
 
-### Phase 1: Shaping (Requirements Gathering)
+### Context Before Questions
 
-Transform a vague idea into documented, validated requirements.
+Always read product mission, roadmap, and tech stack before asking questions. This makes questions more relevant and informed.
 
-**Key Steps:**
+### Visuals Are Critical
 
-1. Initialize spec folder structure (`YYYY-MM-DD-feature-name`)
-2. Read product mission, roadmap, and tech stack for context
-3. Generate 4-8 clarifying questions with sensible defaults
-4. Request visual assets and ask about existing similar features
-5. Check visuals folder via bash (mandatory, even if user says "no visuals")
-6. Ask 1-3 focused follow-ups to resolve ambiguities
-7. Document everything to `planning/requirements.md`
+- Always request visual assets from the user
+- Always check visuals folder via bash (users often forget to mention files they added)
+- Analyze every visual file with Read tool
+- Check filenames for fidelity indicators (lofi, wireframe = low-fidelity)
 
-**Critical Practices:**
+### Reusability First
 
-- Propose assumptions to make confirmation easy for the user
-- Always run `ls -la [spec-path]/planning/visuals/` to check for files
-- Document user's exact answers, not interpretations
-- Keep follow-ups minimal (1-3 questions maximum)
+- Launch code-explorer subagents to find reusable code
+- Document existing components with file paths
+- Avoid specifying new components when existing ones work
+- Follow established patterns identified by subagents
 
-For detailed shaping workflow, see `references/shaping-guide.md`.
+### Scope Clarity
 
-### Phase 2: Writing (Specification Documentation)
+- Define explicit in-scope features
+- State out-of-scope items clearly
+- Avoid over-engineering
+- Keep specifications simple and focused
 
-Transform requirements into a clear, actionable specification with architectural guidance.
+### Limited Testing
 
-**Key Steps:**
-
-1. Read `planning/requirements.md` and analyze gathered information
-2. Launch 2-3 **code-explorer** subagents in parallel to:
-   - Analyze similar features mentioned in requirements
-   - Search for reusable UI components
-   - Identify backend patterns and services
-3. Launch **code-architect** subagent with explorer findings to:
-   - Design feature architecture based on requirements
-   - Create component design and data flow
-4. Analyze every visual file with Read tool
-5. Create `spec.md` integrating all subagent findings
-6. Verify quality and alignment with requirements
-
-**Critical Practices:**
-
-- Launch subagents in parallel (single message with multiple Task calls)
-- Wait for explorers to complete before launching architect
-- Never write actual code in specifications
-- Keep sections concise and skimmable
-- Follow the template exactly
-
-For detailed writing workflow, see `references/writing-guide.md`.
+- Specs call for focused, minimal tests
+- Each implementation task group: 2-8 tests
+- Total per feature: ~16-34 tests, not hundreds
 
 ## Folder Structure
 
@@ -78,19 +57,21 @@ Every spec creates this structure:
 ```text
 docs/specs/YYYY-MM-DD-feature-name/
 ├── planning/
-│   ├── requirements.md       # All gathered requirements
+│   ├── requirements.md       # Gathered requirements (from shaping)
 │   └── visuals/              # Mockups, wireframes, screenshots
-├── implementation/           # Implementation reports (created later)
+├── implementation/           # Implementation reports (created during implementation)
 └── spec.md                   # The final specification document
 ```
 
 ## Specification Template
 
+Use this exact structure for `spec.md`:
+
 ```markdown
 # Specification: [Feature Name]
 
 ## Goal
-[1-2 sentences describing core objective]
+[1-2 sentences describing core objective and user value]
 
 ## User Stories
 - As a [user type], I want to [action] so that [benefit]
@@ -110,10 +91,10 @@ docs/specs/YYYY-MM-DD-feature-name/
 ## Existing Code to Leverage
 [Based on code-explorer findings]
 **[Component/code found] - `path/to/file`**
-- What it does: [From code-explorer analysis]
+- What it does: [Description]
 - How to reuse: [Extend, replicate, import]
 - Key methods: [Relevant APIs]
-[Max 5 code areas from code-explorer agents]
+[Max 5 code areas]
 
 ## Architecture Approach
 [Based on code-architect blueprint]
@@ -125,59 +106,81 @@ docs/specs/YYYY-MM-DD-feature-name/
 - [Up to 10 specific features that MUST NOT be built]
 ```
 
-## Key Principles
+## Requirements Template
 
-### 1. Context Before Questions
+Use this structure for `planning/requirements.md`:
 
-Always read product mission, roadmap, and tech stack before asking questions. This makes questions more relevant and informed.
+```markdown
+# Spec Requirements: [Spec Name]
 
-### 2. Visuals Are Critical
+## Initial Description
+[User's original description verbatim]
 
-- Always request visual assets from the user
-- Always check visuals folder via bash (users often forget to mention files)
-- Analyze every visual file with Read tool
-- Check filenames for fidelity indicators (lofi, wireframe = low-fidelity)
+## Requirements Discussion
 
-### 3. Reusability First
+### Questions & Answers
+**Q1:** [Question asked]
+**A:** [User's exact answer]
+[Continue for all Q&A]
 
-- Launch code-explorer subagents to find reusable code
-- Document existing components with file paths
-- Avoid specifying new components when existing ones work
-- Follow established patterns identified by subagents
+### Existing Code References
+[Similar features/paths identified by user, or "None identified"]
 
-### 4. Scope Clarity
+### Follow-up Questions
+[If any were asked]
 
-- Define explicit in-scope features
-- State out-of-scope items clearly
-- Avoid over-engineering
-- Keep it simple and focused
+## Visual Assets
 
-### 5. Limited Testing
+### Files Found
+[Based on bash check, not user statement]
+- `filename.png`: [Description from analysis]
 
-- Specs call for focused, minimal tests
-- Implementation task groups: 2-8 tests each
-- Total: ~16-34 tests per feature, not hundreds
+### Visual Insights
+- [Design patterns identified]
+- [Fidelity level: high-fidelity mockup / low-fidelity wireframe]
 
-## Quality Checklist
+## Requirements Summary
 
-Before completing each phase:
+### Functional Requirements
+- [Core functionality]
+- [User actions enabled]
+- [Data to be managed]
 
-**Shaping Phase:**
+### Reusability Opportunities
+- [Components that might exist]
+- [Backend patterns to investigate]
 
-- [ ] Spec folder created with proper YYYY-MM-DD-name format
+### Scope Boundaries
+**In Scope:**
+- [What will be built]
+
+**Out of Scope:**
+- [What won't be built]
+
+### Technical Considerations
+- [Integration points]
+- [Existing constraints]
+```
+
+## Quality Checklists
+
+### Shaping Phase Checklist
+
+- [ ] Spec folder created with YYYY-MM-DD-name format
 - [ ] Product context files read (mission, roadmap, tech-stack)
 - [ ] 4-8 clarifying questions asked with sensible defaults
 - [ ] Reusability and visual assets questions included
 - [ ] Mandatory bash visual check performed
 - [ ] All visual files analyzed with Read tool
 - [ ] All answers documented exactly as stated
+- [ ] Follow-ups limited to 1-3 questions
 
-**Writing Phase:**
+### Writing Phase Checklist
 
-- [ ] All visual files referenced and analyzed
+- [ ] Requirements.md read and analyzed
 - [ ] Code-explorer subagents launched in parallel
-- [ ] Code-architect subagent received explorer findings
-- [ ] Subagent findings integrated into specification
+- [ ] Code-architect received explorer findings
+- [ ] All visual files referenced and analyzed
 - [ ] Template structure followed exactly
 - [ ] No actual code written in spec
 - [ ] Out-of-scope items clearly stated
@@ -214,36 +217,14 @@ For detailed workflow instructions, consult:
 
 Working examples demonstrating expected output format:
 
-- **`examples/sample-requirements.md`** - Complete requirements document from shaping phase
-- **`examples/sample-spec.md`** - Final specification document from writing phase
+- **`examples/sample-requirements.md`** - Complete requirements document
+- **`examples/sample-spec.md`** - Final specification document
 
-## Example Usage Flow
+## Workflow Commands
 
-```bash
-User: "I want to create a spec for user authentication"
+This skill provides domain knowledge for:
 
-Phase 1 - Shaping:
-→ Create spec folder: docs/specs/2025-11-16-user-authentication/
-→ Read product mission, roadmap, tech stack
-→ Generate 6 clarifying questions about auth approach
-→ Ask about existing similar features and visual assets
-→ Receive user answers
-→ Run: ls -la planning/visuals/ (find login-mockup.png!)
-→ Read and analyze login-mockup.png
-→ Ask 2 follow-up questions about visual elements
-→ Document everything to planning/requirements.md
+- **`/shape-spec`** - Gathers requirements (shaping phase procedure)
+- **`/write-spec`** - Creates specification document (writing phase procedure)
 
-Phase 2 - Writing:
-→ Read planning/requirements.md
-→ Launch 3 code-explorer agents in parallel:
-  • Explorer 1: Analyze existing auth features
-  • Explorer 2: Search for reusable form components
-  • Explorer 3: Find validation and service patterns
-→ Wait for explorers to complete
-→ Launch code-architect with requirements + explorer findings
-→ Read login-mockup.png and analyze design elements
-→ Create spec.md integrating all findings
-→ Verify alignment with requirements
-
-Result: Comprehensive, architecture-informed spec ready for implementation
-```
+The commands contain the step-by-step procedures; this skill provides the philosophy, templates, and quality standards.

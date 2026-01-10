@@ -50,7 +50,7 @@ Check for spec or requirements:
 
 ## Phase 2: Create Task List
 
-Invoke the **task-breakdown** skill before proceeding.
+> **Domain Knowledge:** The **task-breakdown** skill provides sizing rules and templates for this phase.
 
 ### Task Sizing Rules
 

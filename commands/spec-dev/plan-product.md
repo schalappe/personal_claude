@@ -37,7 +37,7 @@ Check for existing docs: ❯`ls -la docs/product/ 2>/dev/null || echo "NO_DOCS"`
 
 ### Collect Required Information
 
-Invoke the **product-planning** skill before proceeding.
+> **Domain Knowledge:** The **product-planning** skill provides templates and quality standards for product documents.
 
 Gather from the user:
 
