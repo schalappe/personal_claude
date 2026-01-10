@@ -74,51 +74,9 @@ Ready to proceed?
 
 ## Phase 2: Create Mission Document
 
-Create `docs/product/mission.md`:
+> **Domain Knowledge:** The **product-planning** skill provides the mission template structure.
 
-```markdown
-# Product Mission
-
-## Pitch
-[PRODUCT_NAME] is a [PRODUCT_TYPE] that helps [TARGET_USERS] [SOLVE_PROBLEM]
-by providing [KEY_VALUE_PROPOSITION].
-
-## Users
-
-### Primary Customers
-- [CUSTOMER_SEGMENT]: [DESCRIPTION]
-
-### User Personas
-**[USER_TYPE]** ([AGE_RANGE])
-- **Role:** [JOB_TITLE/CONTEXT]
-- **Context:** [BUSINESS/PERSONAL_CONTEXT]
-- **Pain Points:** [SPECIFIC_PROBLEMS]
-- **Goals:** [DESIRED_OUTCOMES]
-
-## The Problem
-
-### [PROBLEM_TITLE]
-[PROBLEM_DESCRIPTION]. [QUANTIFIABLE_IMPACT].
-
-**Our Solution:** [SOLUTION_APPROACH]
-
-## Differentiators
-
-### [DIFFERENTIATOR_TITLE]
-Unlike [COMPETITOR/ALTERNATIVE], we provide [SPECIFIC_ADVANTAGE].
-This results in [MEASURABLE_BENEFIT].
-
-## Key Features
-
-### Core Features
-- **[FEATURE_NAME]:** [USER_BENEFIT_DESCRIPTION]
-
-### Collaboration Features
-- **[FEATURE_NAME]:** [USER_BENEFIT_DESCRIPTION]
-
-### Advanced Features
-- **[FEATURE_NAME]:** [USER_BENEFIT_DESCRIPTION]
-```
+Create `docs/product/mission.md` following the mission template from the skill.
 
 **Constraints:**
 
@@ -137,87 +95,16 @@ Review to ensure it matches your vision. Ready for Phase 3?
 
 ## Phase 3: Create Roadmap
 
-### Onion Layer Philosophy
-
-The roadmap follows a layered approach where each feature adds a new "ring" around the product:
-
-```text
-        ┌────────────────────────────────────┐
-        │      Advanced Features             │  ← Layer 4: Polish & power features
-        │   ┌────────────────────────────┐   │
-        │   │   Extended Features        │   │  ← Layer 3: Enhanced capabilities
-        │   │   ┌────────────────────┐   │   │
-        │   │   │  Core Features     │   │   │  ← Layer 2: Primary user value
-        │   │   │   ┌────────────┐   │   │   │
-        │   │   │   │ Foundation │   │   │   │  ← Layer 1: Essential infrastructure
-        │   │   │   └────────────┘   │   │   │
-        │   │   └────────────────────┘   │   │
-        │   └────────────────────────────┘   │
-        └────────────────────────────────────┘
-```
-
-**Key Principles:**
-
-1. **Features deliver user value** — A feature provides a service, possibility, or function
-2. **Always functional** — After each feature, the product works; new features never break existing ones
-3. **Standalone completeness** — Each feature is end-to-end (frontend + backend + tests)
-4. **Layered building** — Start with foundation, then build around previous features
-
-### What IS a Feature
-
-- ✅ "Generate API keys" — User gains a capability
-- ✅ "Export data to CSV" — User accomplishes a task
-- ✅ "User authentication" — User can access the product
-
-### What is NOT a Feature
-
-- ❌ "Add a database" — Infrastructure, not user value
-- ❌ "Set up CI/CD" — Developer tooling
-- ❌ "Configure logging" — Operational concern
-
-Technical needs are embedded WITHIN features that require them.
+> **Domain Knowledge:** The **product-planning** skill provides the onion layer philosophy, feature definitions, effort scale, and ordering criteria.
 
 ### Build the Roadmap
 
-Read `docs/product/mission.md` to inform feature ordering.
+1. Read `docs/product/mission.md` to inform feature ordering
+2. Apply the onion layer philosophy from the skill
+3. Use the effort scale from the skill for estimates
+4. Follow the ordering criteria from the skill
 
-Create `docs/product/roadmap.md`:
-
-```markdown
-# Product Roadmap
-
-> **Onion Layer Approach:** Each feature adds a layer of capability. The product remains functional after completing any feature.
-
-## Foundation Layer
-1. [ ] [FEATURE_NAME] — [User value description] `[EFFORT]`
-
-## Core Features Layer
-2. [ ] [FEATURE_NAME] — [User value description] `[EFFORT]`
-3. [ ] [FEATURE_NAME] — [User value description] `[EFFORT]`
-
-## Extended Features Layer
-4. [ ] [FEATURE_NAME] — [User value description] `[EFFORT]`
-
-## Advanced Features Layer
-5. [ ] [FEATURE_NAME] — [User value description] `[EFFORT]`
-```
-
-**Effort Scale:**
-
-| Size | Duration |
-| ---- | -------- |
-| XS   | 1 day    |
-| S    | 2-3 days |
-| M    | 1 week   |
-| L    | 2 weeks  |
-| XL   | 3+ weeks |
-
-**Ordering Criteria:**
-
-1. **Foundation First** — Features that other features depend on
-2. **Core Value Next** — Primary user capabilities that fulfill the mission
-3. **Extended Capabilities** — Features that enhance but aren't essential
-4. **Polish Last** — Advanced features, optimizations, nice-to-haves
+Create `docs/product/roadmap.md` following the roadmap structure from the skill.
 
 **Constraints:**
 
@@ -237,6 +124,8 @@ Review to ensure alignment. Ready for Phase 4?
 ---
 
 ## Phase 4: Document Tech Stack
+
+> **Domain Knowledge:** The **product-planning** skill provides tech stack documentation patterns.
 
 ### Gather Tech Stack Information
 
@@ -275,8 +164,5 @@ Review to ensure all details are correct.
 - Follow phases sequentially — do not skip ahead
 - Wait for user confirmation before proceeding between phases
 - Focus on user benefits over technical details in mission document
-- **Roadmap follows onion layer philosophy** — each feature adds a layer of capability
-- **Features deliver user value** — no infrastructure-only items
-- **Product stays functional** — completing any feature leaves product working
-- Keep roadmap actionable with effort estimates
+- Apply the **product-planning** skill's quality checklist before completing each document
 - Reconcile tech stack from multiple sources, prioritizing user input
