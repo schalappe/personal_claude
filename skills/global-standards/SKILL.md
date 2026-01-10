@@ -1,7 +1,7 @@
 ---
 name: global-standards
-version: "1.0.0"
-description: This skill should be used when the user asks to "format this code", "what naming convention should I use", "how should I handle errors", "add comments to code", "organize this file", "validate input", "structure this project", "SOLID principles", "DRY principle", "clean architecture", "code quality rules", or mentions coding style, code conventions, error handling patterns, validation logic, or development best practices.
+version: "1.1.0"
+description: This skill should be used when the user asks to "format this code", "what naming convention should I use", "how should I handle errors", "add comments to code", "organize this file", "validate input", "structure this project", "SOLID principles", "DRY principle", "clean architecture", "code quality rules", "repository pattern", "service layer", "dependency injection", or mentions coding style, code conventions, error handling patterns, validation logic, architecture patterns, or development best practices.
 ---
 
 # Global Development Standards
@@ -18,6 +18,7 @@ Activate when:
 - Handling errors or validation logic
 - Adding comments or documentation to code
 - Defining project conventions or configuration
+- Implementing repository or service patterns
 
 ## Core Principles
 
@@ -29,7 +30,7 @@ Activate when:
 | Functions  | Small, focused on single task; <50 lines ideal             |
 | Formatting | Consistent automated style (indentation, line breaks)      |
 | Dead Code  | Delete unused code, commented blocks, imports              |
-| DRY        | Extract common logic into reusable functions               |
+| DRY        | Extract common logic after 3+ repetitions                  |
 | Simplicity | No backward compatibility hacks unless explicitly required |
 
 ### Error Handling
@@ -65,37 +66,82 @@ Follow this hierarchy:
 3. **Evergreen only** - No comments about recent changes or fixes
 4. **Focus on "why"** - Not "what" the code does
 
-## Project Conventions
+## Architecture Patterns
 
-### Structure
+### SOLID Principles
+
+- **S (Single Responsibility)**: One responsibility per module/class/function
+- **O (Open/Closed)**: Extend via composition, never modify stable code
+- **L (Liskov Substitution)**: Subtypes must be safely substitutable
+- **I (Interface Segregation)**: Small, focused interfaces
+- **D (Dependency Inversion)**: Depend on abstractions, wire concretes at composition root
+
+### Clean Architecture Layers
+
+```text
+┌─────────────────────────────────┐
+│     Presentation (UI/API)       │
+├─────────────────────────────────┤
+│     Application (Use Cases)     │
+├─────────────────────────────────┤
+│      Domain (Business Logic)    │
+├─────────────────────────────────┤
+│   Infrastructure (External)     │
+└─────────────────────────────────┘
+```
+
+**Dependency Rule**: Dependencies point inward only.
+
+### Repository Pattern
+
+Isolate data access in repository classes:
+
+- Execute queries and map data to models
+- Handle database-specific logic
+- Provide clean interfaces for data operations
+- Enable testing with mocks
+
+### Service Layer Pattern
+
+- Business logic in services, not models or routes
+- Services orchestrate repositories and external calls
+- Keep controllers (routes) thin - delegate to services
+- Handle transactions at service layer
+
+## File Organization
+
+### Size Limits
+
+- **Files**: < 500 lines (split when larger)
+- **Functions**: < 50 lines (extract when larger)
+- **Classes**: > 100 lines should live in own module
+
+### Structure Rules
 
 - Organize files in predictable, logical structure
-- Maintain up-to-date README with setup and architecture
+- One concept per file (single class/module focus)
+- Clear dependencies with no circular imports
+- Logical grouping of related functionality
+
+## Project Conventions
+
+### Environment and Configuration
+
 - Use environment variables for configuration
 - Never commit secrets or API keys
+- Maintain up-to-date README with setup instructions
 
 ### Version Control
 
-- Clear commit messages with type prefixes
+- Clear commit messages with type prefixes (feat, fix, docs, refactor)
 - Feature branches for development
 - Meaningful pull requests with descriptions
-- Changelog for significant changes
 
 ### Dependencies
 
 - Keep dependencies minimal and up-to-date
 - Document why major dependencies exist
 - Use feature flags for incomplete features
-
-### Code Review
-
-- Establish consistent review process
-- Define testing requirements before merge
-- Clear expectations for reviewers and authors
-
-## Tech Stack Alignment
-
-Ensure code aligns with the project's defined tech stack.
 
 ## Implementation Checklist
 
@@ -114,7 +160,8 @@ When implementing any code change:
 
 This skill provides foundation standards. Apply specialized skills for domain-specific guidance:
 
-- **Backend Standards** - Server-side code patterns
+- **Backend Design** - API design patterns and principles
+- **Frontend Design** - UI/UX design patterns
 - **Testing Standards** - Test writing practices
 
 ## Additional Resources
@@ -124,3 +171,4 @@ This skill provides foundation standards. Apply specialized skills for domain-sp
 For detailed patterns and examples, consult:
 
 - **`references/patterns.md`** - Detailed coding patterns with examples for naming, error handling, validation, and commenting across languages
+- **`references/architecture.md`** - Clean architecture patterns, repository and service layer implementation details
