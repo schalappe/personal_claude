@@ -8,9 +8,9 @@ A Claude Code configuration repository that extends Claude's capabilities with s
 
 Domain-specific modules that provide structured guidance for common development tasks:
 
-- **backend-standards** - API design, database patterns, service layers
+- **global-standards** - Coding standards, naming conventions, error handling, architecture patterns (SOLID, repository, service layer)
+- **backend-design** - REST API design patterns, resource modeling, response structures
 - **frontend-design** - Production-grade UI components and interfaces
-- **global-standards** - Code formatting, naming conventions, error handling
 - **testing-standards** - Test patterns, coverage strategies, mocking
 - **codebase-documenter** - README generation, architecture docs
 - **product-planning** - Mission docs, roadmaps, tech stack decisions
@@ -108,12 +108,16 @@ Skills are automatically triggered based on context. Commands are invoked with `
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                               SKILLS                                        │
 │                                                                             │
-│   Foundation:          Domain-Specific:           Workflow:                 │
+│   Foundation:          Design:                     Workflow:                │
 │   ┌────────────────┐   ┌────────────────────┐    ┌────────────────────┐     │
-│   │global-standards│   │ backend-standards  │    │ product-planning   │     │
+│   │global-standards│   │ backend-design     │    │ product-planning   │     │
 │   │(all commands)  │   │ frontend-design    │    │ spec-creation      │     │
-│   └────────────────┘   │ testing-standards  │    │ task-breakdown     │     │
-│                        │ codebase-documenter│    └────────────────────┘     │
+│   └────────────────┘   └────────────────────┘    │ task-breakdown     │     │
+│                                                  └────────────────────┘     │
+│                        Domain:                                              │
+│                        ┌────────────────────┐                               │
+│                        │ testing-standards  │                               │
+│                        │ codebase-documenter│                               │
 │                        │ research-paper-    │                               │
 │                        │   writer           │                               │
 │                        └────────────────────┘                               │
