@@ -23,7 +23,8 @@ Execute the complete PR workflow based on the changes above.
    - `type(scope): description` (e.g., `feat(api): add user endpoints`)
    - Types: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`
 3. **Push**: Push branch to origin with `-u` flag
-4. **Create PR**: Use `gh pr create` with:
+4. **Understand**: Review changes between `main` and current branch
+5. **Create PR**: Use `gh pr create` with:
    - Clear title matching commit
    - Body with Summary and Test Plan sections
 
