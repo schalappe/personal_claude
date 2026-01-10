@@ -1,0 +1,15 @@
+# Claude
+.claude/
+CLAUDE.md
+
+# macOS
+.DS_Store
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
