@@ -1,0 +1,9 @@
+{
+  "name": "academic",
+  "version": "1.0.0",
+  "description": "Academic writing support for research papers with IEEE and ACM formatting standards",
+  "author": {
+    "name": "schalappe"
+  },
+  "keywords": ["academic", "research", "paper", "IEEE", "ACM", "writing", "publication"]
+}
