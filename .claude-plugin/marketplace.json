@@ -1,0 +1,51 @@
+{
+  "name": "personal-claude",
+  "version": "1.0.0",
+  "description": "Personal Claude Code plugins for software engineering workflows including development tooling, specification-driven development, git automation, and academic writing",
+  "owner": {
+    "name": "schalappe",
+    "email": "schalappe@users.noreply.github.com"
+  },
+  "plugins": [
+    {
+      "name": "dev-kit",
+      "description": "Development toolkit with coding standards, specialized agents for code exploration/architecture/review, and mode-based commands for code, debug, docs, test, ask, and architect workflows",
+      "version": "1.0.0",
+      "author": {
+        "name": "schalappe"
+      },
+      "source": "./plugins/dev-kit",
+      "category": "development"
+    },
+    {
+      "name": "spec-dev",
+      "description": "Specification-driven development workflow with commands for product planning, requirements gathering, spec writing, task breakdown, and implementation",
+      "version": "1.0.0",
+      "author": {
+        "name": "schalappe"
+      },
+      "source": "./plugins/spec-dev",
+      "category": "workflow"
+    },
+    {
+      "name": "git",
+      "description": "Git workflow automation for staging, committing, branch cleanup, and pull request creation with conventional commit support",
+      "version": "1.0.0",
+      "author": {
+        "name": "schalappe"
+      },
+      "source": "./plugins/git",
+      "category": "productivity"
+    },
+    {
+      "name": "academic",
+      "description": "Academic writing support for research papers with IEEE and ACM formatting standards, paper structure guidance, and citation patterns",
+      "version": "1.0.0",
+      "author": {
+        "name": "schalappe"
+      },
+      "source": "./plugins/academic",
+      "category": "writing"
+    }
+  ]
+}

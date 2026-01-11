@@ -1,172 +1,108 @@
-# Personal Claude
+# Personal Claude Plugins
 
-A Claude Code configuration repository that extends Claude's capabilities with specialized skills, agents, and slash commands.
-
-## What's Included
-
-### Skills
-
-Domain-specific modules that provide structured guidance for common development tasks:
-
-- **backend-standards** - API design, database patterns, service layers
-- **frontend-design** - Production-grade UI components and interfaces
-- **global-standards** - Code formatting, naming conventions, error handling
-- **testing-standards** - Test patterns, coverage strategies, mocking
-- **codebase-documenter** - README generation, architecture docs
-- **product-planning** - Mission docs, roadmaps, tech stack decisions
-- **spec-creation** - Feature specifications and requirements
-- **task-breakdown** - Breaking specs into implementation tasks
-- **research-paper-writer** - Academic paper structure and formatting
-
-### Agents
-
-Specialized analysis agents for targeted tasks:
-
-- **code-explorer** - Deep codebase analysis and architecture mapping
-- **code-architect** - Feature design and implementation blueprints
-- **code-reviewer** - Bug detection and code quality review
-
-### Commands
-
-Slash commands organized by category:
-
-**Git** (`/commit`, `/clean_gone`, `/commit-push-pr`)
-- Streamlined git workflows with conventional commits
-
-**Dev Kit** (`/code-mode`, `/debug-mode`, `/docs-mode`, `/test-mode`, `/ask-mode`, `/architect-mode`)
-- Development workflow modes
-
-**Spec Dev** (`/write-spec`, `/shape-spec`, `/plan-product`, `/create-tasks`, `/implement-task`)
-- Specification-first development workflow
+A Claude Code plugin marketplace for software engineering workflows. Install individual plugins to extend Claude Code with specialized skills, agents, and commands.
 
 ## Installation
 
-Copy the contents of this repository to your Claude Code settings directory:
+### Via Claude Code CLI
 
 ```bash
-# Copy to global Claude settings
-cp -r skills agents commands ~/.claude/
+# Install from this marketplace
+/install-plugin plugin-name@github:schalappe/personal_claude
 ```
 
-Or symlink for easier updates:
+### Via Settings
 
-```bash
-ln -s /path/to/personal_claude/skills ~/.claude/skills
-ln -s /path/to/personal_claude/agents ~/.claude/agents
-ln -s /path/to/personal_claude/commands ~/.claude/commands
-```
+1. Open Claude Code settings
+2. Navigate to Plugins > Discover
+3. Add this marketplace URL: `github:schalappe/personal_claude`
+4. Browse and install desired plugins
 
-## Usage
+## Available Plugins
 
-Skills are automatically triggered based on context. Commands are invoked with `/`:
+### dev-kit
 
-```bash
-/commit          # Create a conventional commit
-/code-mode       # Enter focused coding mode
-/shape-spec      # Start shaping a new feature spec
-```
+Development toolkit with coding standards, specialized agents, and mode-based commands.
 
-## Architecture
+| Component | Count | Description |
+|-----------|-------|-------------|
+| Commands | 6 | `/code-mode`, `/debug-mode`, `/docs-mode`, `/test-mode`, `/ask-mode`, `/architect-mode` |
+| Agents | 3 | code-explorer, code-architect, code-reviewer |
+| Skills | 5 | global-standards, backend-design, frontend-design, codebase-documenter, testing-standards |
 
-### Component Relationships
+**Use cases:** Writing code, debugging, documentation, testing, architecture design
+
+---
+
+### spec-dev
+
+Specification-driven development workflow from idea to implementation.
+
+| Component | Count | Description |
+|-----------|-------|-------------|
+| Commands | 6 | `/plan-product`, `/shape-spec`, `/write-spec`, `/create-tasks`, `/implement-task`, `/implement-task-loop` |
+| Skills | 3 | product-planning, spec-creation, task-breakdown |
+
+**Use cases:** Product planning, feature specifications, task breakdown, structured implementation
+
+---
+
+### git
+
+Git workflow automation with conventional commit support.
+
+| Component | Count | Description |
+|-----------|-------|-------------|
+| Commands | 3 | `/commit`, `/clean_gone`, `/commit-push-pr` |
+
+**Use cases:** Staging changes, creating commits, branch cleanup, pull request creation
+
+---
+
+### academic
+
+Academic writing support for research papers.
+
+| Component | Count | Description |
+|-----------|-------|-------------|
+| Skills | 1 | research-paper-writer (IEEE/ACM formatting) |
+
+**Use cases:** Research papers, conference submissions, academic writing
+
+## Workflows
+
+### Spec-First Development
 
 ```text
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                              COMMANDS                                       │
-│                                                                             │
-│   ┌─────────────────┐  ┌─────────────────────┐  ┌──────────────────────┐    │
-│   │     Git (3)     │  │    Dev Kit (6)      │  │    Spec Dev (5)      │    │
-│   │                 │  │                     │  │                      │    │
-│   │ • commit        │  │ • code-mode    ─────┼──┼─→ implement-task     │    │
-│   │ • clean_gone    │  │ • debug-mode        │  │ • create-tasks       │    │
-│   │ • commit-push-pr│  │ • test-mode         │  │ • write-spec         │    │
-│   │                 │  │ • docs-mode         │  │ • shape-spec         │    │
-│   │                 │  │ • ask-mode          │  │ • plan-product       │    │
-│   │                 │  │ • architect-mode    │  │                      │    │
-│   └─────────────────┘  └──────────┬──────────┘  └──────────┬───────────┘    │
-│                                   │                        │                │
-└───────────────────────────────────┼────────────────────────┼────────────────┘
-                                    │                        │
-                    ┌───────────────┴────────────────────────┴───────────────┐
-                    │                                                        │
-                    ▼                                                        ▼
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                               AGENTS                                        │
-│                                                                             │
-│   ┌───────────────────┐  ┌────────────────────┐  ┌───────────────────┐      │
-│   │   code-explorer   │  │   code-architect   │  │   code-reviewer   │      │
-│   │     (haiku)       │  │     (opus)         │  │     (sonnet)      │      │
-│   │                   │  │                    │  │                   │      │
-│   │ • Trace paths     │  │ • Design features  │  │ • Find bugs       │      │
-│   │ • Map layers      │  │ • Create blueprints│  │ • Quality review  │      │
-│   │ • Find patterns   │  │ • Plan data flows  │  │ • Security audit  │      │
-│   └───────────────────┘  └────────────────────┘  └───────────────────┘      │
-│                                                                             │
-└──────────────────────────────────┬──────────────────────────────────────────┘
-                                   │
-                                   ▼
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                               SKILLS                                        │
-│                                                                             │
-│   Foundation:          Domain-Specific:           Workflow:                 │
-│   ┌────────────────┐   ┌────────────────────┐    ┌────────────────────┐     │
-│   │global-standards│   │ backend-standards  │    │ product-planning   │     │
-│   │(all commands)  │   │ frontend-design    │    │ spec-creation      │     │
-│   └────────────────┘   │ testing-standards  │    │ task-breakdown     │     │
-│                        │ codebase-documenter│    └────────────────────┘     │
-│                        │ research-paper-    │                               │
-│                        │   writer           │                               │
-│                        └────────────────────┘                               │
-└─────────────────────────────────────────────────────────────────────────────┘
+/plan-product -> /shape-spec -> /write-spec -> /create-tasks -> /implement-task
 ```
 
-### Command → Agent → Skill Dependencies
+1. Define mission and roadmap
+2. Gather requirements
+3. Write detailed specification
+4. Break into actionable tasks
+5. Implement each task
 
-| Command | Agents Used | Skills Used |
-|---------|-------------|-------------|
-| `/code-mode` | explorer, architect, reviewer | global-standards |
-| `/debug-mode` | explorer, reviewer | global-standards |
-| `/test-mode` | explorer, reviewer | testing-standards |
-| `/docs-mode` | explorer | codebase-documenter |
-| `/ask-mode` | explorer | — |
-| `/architect-mode` | explorer, architect | global-standards |
-| `/plan-product` | — | product-planning |
-| `/shape-spec` | — | spec-creation |
-| `/write-spec` | explorer ×2-3, architect | spec-creation |
-| `/create-tasks` | — | task-breakdown |
-| `/implement-task` | explorer ×2-3, architect ×2-3, reviewer ×3 | all relevant |
-
-### Development Workflows
-
-**Spec-First Development** (recommended for features):
-
-```text
-/plan-product → /shape-spec → /write-spec → /create-tasks → /implement-task
-     │              │              │              │               │
-     ▼              ▼              ▼              ▼               ▼
-  Mission       Requirements   Detailed       Actionable      Code with
-  & Roadmap     Gathered       Spec           Tasks           QA Review
-```
-
-**Direct Development** (quick fixes, small changes):
+### Direct Development
 
 ```text
 /code-mode or /debug-mode
-       │
-       ▼
-  ┌─────────┐    ┌───────────┐    ┌──────────┐
-  │ Explore │ →  │ Implement │ →  │ Review   │
-  └─────────┘    └───────────┘    └──────────┘
 ```
 
-### Agent Model Selection
+Quick fixes and small changes without full specification workflow.
 
-| Agent | Model | Why |
-|-------|-------|-----|
-| code-explorer | haiku | Fast, cost-effective for read-heavy analysis |
-| code-architect | opus | Complex reasoning for architectural decisions |
-| code-reviewer | sonnet | Balanced for pattern matching and quality checks |
+## Agent Models
+
+| Agent | Model | Purpose |
+|-------|-------|---------|
+| code-explorer | haiku | Fast codebase analysis |
+| code-architect | opus | Complex architectural decisions |
+| code-reviewer | sonnet | Code quality and pattern matching |
+
+## Contributing
+
+See [CLAUDE.md](CLAUDE.md) for development guidelines.
 
 ## License
 
-Personal configuration - use as inspiration for your own setup.
+MIT

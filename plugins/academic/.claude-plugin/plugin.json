@@ -1,0 +1,32 @@
+{
+  "name": "academic",
+  "version": "1.0.0",
+  "description": "Academic writing support for research papers with IEEE and ACM formatting standards, paper structure guidance, and citation patterns",
+  "author": {
+    "name": "schalappe"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/schalappe/personal_claude/tree/main/plugins/academic",
+  "keywords": [
+    "academic",
+    "research",
+    "paper",
+    "IEEE",
+    "ACM",
+    "writing",
+    "publication",
+    "citation"
+  ],
+  "category": "writing",
+  "icon": "graduation-cap",
+  "features": {
+    "commands": 0,
+    "agents": 0,
+    "skills": 1
+  },
+  "components": {
+    "skills": [
+      "research-paper-writer"
+    ]
+  }
+}
