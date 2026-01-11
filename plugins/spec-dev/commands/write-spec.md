@@ -54,7 +54,7 @@ Check requirements: ❯`test -f [spec-path]/planning/requirements.md && echo "EX
 
 ### Launch Code Explorers
 
-Launch 2-3 `code-explorer` agents **in parallel** using the Task tool:
+Launch 2-3 `dev-kit:code-explorer` agents **in parallel** using the Task tool:
 
 | Agent Focus         | What to Find                                    |
 | ------------------- | ----------------------------------------------- |
@@ -65,9 +65,9 @@ Launch 2-3 `code-explorer` agents **in parallel** using the Task tool:
 **Example parallel launch:**
 
 ```markdown
-Task 1: code-explorer analyzing similar feature at [path from requirements]
-Task 2: code-explorer searching for reusable [component type] components
-Task 3: code-explorer analyzing [domain] patterns (services, models)
+Task 1: dev-kit:code-explorer analyzing similar feature at [path from requirements]
+Task 2: dev-kit:code-explorer searching for reusable [component type] components
+Task 3: dev-kit:code-explorer analyzing [domain] patterns (services, models)
 ```
 
 **Wait for all explorers to complete**, then synthesize findings.
@@ -78,7 +78,7 @@ Task 3: code-explorer analyzing [domain] patterns (services, models)
 
 ### Launch Code Architect
 
-Launch `code-architect` agent with:
+Launch `dev-kit:code-architect` agent with:
 
 - Requirements from planning/requirements.md
 - Reusable components identified by explorers
@@ -126,7 +126,7 @@ Create `[spec-path]/spec.md`:
 [repeat per visual file]
 
 ## Existing Code to Leverage
-[From code-explorer findings]
+[From dev-kit:code-explorer findings]
 
 **[Component/Service] — `path/to/file.ext`**
 - What it does: [Description]
@@ -136,7 +136,7 @@ Create `[spec-path]/spec.md`:
 [max 5 existing code areas]
 
 ## Architecture Approach
-[From code-architect blueprint]
+[From dev-kit:code-architect blueprint]
 
 **Component Design:**
 - [Key components and responsibilities]
@@ -190,8 +190,8 @@ Before completing, verify:
 - Architecture: Blueprint included
 
 **Agent Analysis:**
-- code-explorer agents: [X] launched
-- code-architect: Design complete
+- dev-kit:code-explorer agents: [X] launched
+- dev-kit:code-architect: Design complete
 
 👉 Next: Run `/create-tasks` to break this into implementation tasks.
 ```
@@ -200,7 +200,7 @@ Before completing, verify:
 
 ## Constraints
 
-- Launch code-explorer agents **in parallel** (single message, multiple Task calls)
+- Launch dev-kit:code-explorer agents **in parallel** (single message, multiple Task calls)
 - Wait for agents to complete before proceeding
 - Integrate agent findings into specification
 - Do NOT write actual code

@@ -28,11 +28,11 @@ Invoke `codebase-documenter` skill.
 
 Use the following agent to assist documentation:
 
-1. **code-explorer** (Before documenting): Launch this agent to deeply understand the code being documented. It traces execution paths, maps architecture layers, identifies patterns, and documents dependencies - providing the foundation for accurate documentation.
+1. **dev-kit:code-explorer** (Before documenting): Launch this agent to deeply understand the code being documented. It traces execution paths, maps architecture layers, identifies patterns, and documents dependencies - providing the foundation for accurate documentation.
 
 **Agent invocation pattern:**
 
-- Start with code-explorer to build comprehensive understanding
+- Start with dev-kit:code-explorer to build comprehensive understanding
 - Use exploration findings to write accurate, complete documentation
 - Reference specific code locations discovered by the agent
 

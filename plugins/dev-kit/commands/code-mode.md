@@ -28,17 +28,17 @@ Use global-standards skill.
 
 Use the following agents throughout implementation:
 
-1. **code-explorer** (Before coding): Launch this agent to understand existing patterns, conventions, and how similar features are implemented. It traces execution paths and maps architecture to inform your approach.
+1. **dev-kit:code-explorer** (Before coding): Launch this agent to understand existing patterns, conventions, and how similar features are implemented. It traces execution paths and maps architecture to inform your approach.
 
-2. **code-architect** (Planning phase): For non-trivial features, launch this agent to design the implementation. It analyzes codebase patterns and provides blueprints with specific files to create/modify, component designs, and data flows.
+2. **dev-kit:code-architect** (Planning phase): For non-trivial features, launch this agent to design the implementation. It analyzes codebase patterns and provides blueprints with specific files to create/modify, component designs, and data flows.
 
-3. **code-reviewer** (After coding): Launch this agent to review your implementation for bugs, logic errors, security vulnerabilities, and adherence to project conventions. Use its confidence-rated findings to improve code quality.
+3. **dev-kit:code-reviewer** (After coding): Launch this agent to review your implementation for bugs, logic errors, security vulnerabilities, and adherence to project conventions. Use its confidence-rated findings to improve code quality.
 
 **Agent invocation pattern:**
 
-- Start with code-explorer to understand context before writing
-- Use code-architect for features requiring architectural decisions
-- Finish with code-reviewer to catch issues before completion
+- Start with dev-kit:code-explorer to understand context before writing
+- Use dev-kit:code-architect for features requiring architectural decisions
+- Finish with dev-kit:code-reviewer to catch issues before completion
 
 ## Scope of Work
 
