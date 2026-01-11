@@ -106,14 +106,6 @@ Based on your idea for [spec name], I have some clarifying questions:
 3. [Continue with numbered questions...]
 [N]. What should be explicitly OUT of scope for this feature?
 
-**Existing Code Reuse:**
-Are there existing features with similar patterns we should reference?
-- Similar UI components or layouts
-- Related backend logic or services
-- Existing models with similar functionality
-
-Please provide file/folder paths if they exist.
-
 **Visual Assets:**
 Do you have mockups, wireframes, or screenshots?
 
@@ -137,10 +129,6 @@ After receiving answers:
    - Note design elements, patterns, user flows
    - Check filenames for low-fidelity indicators (lofi, wireframe, sketch)
 
-4. If user provided similar feature paths:
-   - Note paths for spec-writer to reference later
-   - Do NOT explore now (save time for write-spec phase)
-
 ### Generate Follow-up Questions (if needed)
 
 Follow-ups needed when:
@@ -150,7 +138,6 @@ Follow-ups needed when:
 | Visuals found but not mentioned      | "I found [files] in visuals. Let me analyze these."         |
 | Low-fidelity indicators in filenames | "These appear to be wireframes. Use as layout guides only?" |
 | Vague requirements                   | Specific clarification questions                            |
-| Missing similar features             | "Could you point to any similar forms/pages in your app?"   |
 
 Limit to 1-3 follow-up questions. **Wait for responses.**
 
@@ -176,9 +163,6 @@ Save all gathered information to `[spec-path]/planning/requirements.md`:
 
 [Continue for all Q&A]
 
-### Existing Code References
-[Similar features/paths identified by user, or "None identified"]
-
 ### Follow-up Questions
 [If any were asked]
 
@@ -200,10 +184,6 @@ Save all gathered information to `[spec-path]/planning/requirements.md`:
 - [Core functionality]
 - [User actions enabled]
 - [Data to be managed]
-
-### Reusability Opportunities
-- [Components that might exist]
-- [Backend patterns to investigate]
 
 ### Scope Boundaries
 
@@ -227,7 +207,6 @@ Save all gathered information to `[spec-path]/planning/requirements.md`:
 
 - ✅ Requirements gathered
 - ✅ Visual check: [Found X files / No files]
-- ✅ Reusability: [Z similar features / None identified]
 
 📁 Created: `[spec-path]/planning/requirements.md`
 
