@@ -11,22 +11,10 @@
     "academic",
     "research",
     "paper",
-    "IEEE",
-    "ACM",
+    "ieee",
+    "acm",
     "writing",
     "publication",
     "citation"
-  ],
-  "category": "writing",
-  "icon": "graduation-cap",
-  "features": {
-    "commands": 0,
-    "agents": 0,
-    "skills": 1
-  },
-  "components": {
-    "skills": [
-      "research-paper-writer"
-    ]
-  }
+  ]
 }

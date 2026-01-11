@@ -15,27 +15,5 @@
     "workflow",
     "product-management",
     "implementation"
-  ],
-  "category": "workflow",
-  "icon": "clipboard-list",
-  "features": {
-    "commands": 6,
-    "agents": 0,
-    "skills": 3
-  },
-  "components": {
-    "commands": [
-      "plan-product",
-      "shape-spec",
-      "write-spec",
-      "create-tasks",
-      "implement-task",
-      "implement-task-loop"
-    ],
-    "skills": [
-      "product-planning",
-      "spec-creation",
-      "task-breakdown"
-    ]
-  }
+  ]
 }

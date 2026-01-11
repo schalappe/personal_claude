@@ -16,34 +16,5 @@
     "architecture",
     "code-review",
     "standards"
-  ],
-  "category": "development",
-  "icon": "wrench",
-  "features": {
-    "commands": 6,
-    "agents": 3,
-    "skills": 6
-  },
-  "components": {
-    "commands": [
-      "code-mode",
-      "debug-mode",
-      "docs-mode",
-      "test-mode",
-      "ask-mode",
-      "architect-mode"
-    ],
-    "agents": [
-      "code-explorer",
-      "code-architect",
-      "code-reviewer"
-    ],
-    "skills": [
-      "global-standards",
-      "backend-design",
-      "frontend-design",
-      "codebase-documenter",
-      "testing-standards"
-    ]
-  }
+  ]
 }

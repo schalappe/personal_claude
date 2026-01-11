@@ -15,19 +15,5 @@
     "workflow",
     "automation",
     "conventional-commits"
-  ],
-  "category": "git",
-  "icon": "git-branch",
-  "features": {
-    "commands": 3,
-    "agents": 0,
-    "skills": 0
-  },
-  "components": {
-    "commands": [
-      "commit",
-      "clean_gone",
-      "commit-push-pr"
-    ]
-  }
+  ]
 }
