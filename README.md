@@ -36,8 +36,9 @@ Slash commands organized by category:
 **Dev Kit** (`/code-mode`, `/debug-mode`, `/docs-mode`, `/test-mode`, `/ask-mode`, `/architect-mode`)
 - Development workflow modes
 
-**Spec Dev** (`/write-spec`, `/shape-spec`, `/plan-product`, `/create-tasks`, `/implement-task`)
+**Spec Dev** (`/write-spec`, `/shape-spec`, `/plan-product`, `/create-tasks`, `/implement-task`, `/implement-task-loop`)
 - Specification-first development workflow
+- `/implement-task-loop` uses Ralph Loop for autonomous iterative implementation
 
 ## Installation
 
@@ -75,14 +76,14 @@ Skills are automatically triggered based on context. Commands are invoked with `
 │                              COMMANDS                                       │
 │                                                                             │
 │   ┌─────────────────┐  ┌─────────────────────┐  ┌──────────────────────┐    │
-│   │     Git (3)     │  │    Dev Kit (6)      │  │    Spec Dev (5)      │    │
+│   │     Git (3)     │  │    Dev Kit (6)      │  │    Spec Dev (6)      │    │
 │   │                 │  │                     │  │                      │    │
 │   │ • commit        │  │ • code-mode    ─────┼──┼─→ implement-task     │    │
-│   │ • clean_gone    │  │ • debug-mode        │  │ • create-tasks       │    │
-│   │ • commit-push-pr│  │ • test-mode         │  │ • write-spec         │    │
-│   │                 │  │ • docs-mode         │  │ • shape-spec         │    │
-│   │                 │  │ • ask-mode          │  │ • plan-product       │    │
-│   │                 │  │ • architect-mode    │  │                      │    │
+│   │ • clean_gone    │  │ • debug-mode        │  │ • implement-task-loop│    │
+│   │ • commit-push-pr│  │ • test-mode         │  │ • create-tasks       │    │
+│   │                 │  │ • docs-mode         │  │ • write-spec         │    │
+│   │                 │  │ • ask-mode          │  │ • shape-spec         │    │
+│   │                 │  │ • architect-mode    │  │ • plan-product       │    │
 │   └─────────────────┘  └──────────┬──────────┘  └──────────┬───────────┘    │
 │                                   │                        │                │
 └───────────────────────────────────┼────────────────────────┼────────────────┘
@@ -139,17 +140,24 @@ Skills are automatically triggered based on context. Commands are invoked with `
 | `/write-spec` | explorer ×2-3, architect | spec-creation |
 | `/create-tasks` | — | task-breakdown |
 | `/implement-task` | explorer ×2-3, architect ×2-3, reviewer ×3 | all relevant |
+| `/implement-task-loop` | — (uses Ralph Loop) | all relevant |
 
 ### Development Workflows
 
 **Spec-First Development** (recommended for features):
 
 ```text
-/plan-product → /shape-spec → /write-spec → /create-tasks → /implement-task
-     │              │              │              │               │
-     ▼              ▼              ▼              ▼               ▼
-  Mission       Requirements   Detailed       Actionable      Code with
-  & Roadmap     Gathered       Spec           Tasks           QA Review
+/plan-product → /shape-spec → /write-spec → /create-tasks ─┬─→ /implement-task
+     │              │              │              │         │        │
+     ▼              ▼              ▼              ▼         │        ▼
+  Mission       Requirements   Detailed       Actionable   │   Interactive
+  & Roadmap     Gathered       Spec           Tasks        │   (7 phases)
+                                                           │
+                                                           └─→ /implement-task-loop
+                                                                     │
+                                                                     ▼
+                                                                Autonomous
+                                                                (Ralph Loop)
 ```
 
 **Direct Development** (quick fixes, small changes):
