@@ -4,5 +4,46 @@
   "description": "Development toolkit with coding standards, specialized agents for code exploration/architecture/review, and mode-based commands for code, debug, docs, test, ask, and architect workflows",
   "author": {
     "name": "schalappe"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/schalappe/personal_claude/tree/main/plugins/dev-kit",
+  "keywords": [
+    "development",
+    "coding",
+    "debugging",
+    "testing",
+    "documentation",
+    "architecture",
+    "code-review",
+    "standards"
+  ],
+  "category": "development",
+  "icon": "wrench",
+  "features": {
+    "commands": 6,
+    "agents": 3,
+    "skills": 6
+  },
+  "components": {
+    "commands": [
+      "code-mode",
+      "debug-mode",
+      "docs-mode",
+      "test-mode",
+      "ask-mode",
+      "architect-mode"
+    ],
+    "agents": [
+      "code-explorer",
+      "code-architect",
+      "code-reviewer"
+    ],
+    "skills": [
+      "global-standards",
+      "backend-design",
+      "frontend-design",
+      "codebase-documenter",
+      "testing-standards"
+    ]
   }
 }

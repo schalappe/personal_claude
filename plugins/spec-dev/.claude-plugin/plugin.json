@@ -4,5 +4,38 @@
   "description": "Specification-driven development workflow with commands for product planning, requirements gathering, spec writing, task breakdown, and implementation. Provides a complete pipeline from idea to implementation.",
   "author": {
     "name": "schalappe"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/schalappe/personal_claude/tree/main/plugins/spec-dev",
+  "keywords": [
+    "specification",
+    "planning",
+    "requirements",
+    "tasks",
+    "workflow",
+    "product-management",
+    "implementation"
+  ],
+  "category": "workflow",
+  "icon": "clipboard-list",
+  "features": {
+    "commands": 6,
+    "agents": 0,
+    "skills": 3
+  },
+  "components": {
+    "commands": [
+      "plan-product",
+      "shape-spec",
+      "write-spec",
+      "create-tasks",
+      "implement-task",
+      "implement-task-loop"
+    ],
+    "skills": [
+      "product-planning",
+      "spec-creation",
+      "task-breakdown"
+    ]
   }
 }
