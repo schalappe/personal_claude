@@ -110,7 +110,7 @@ Output:
 
 **If spec is missing or lacks these sections:**
 
-1. Launch 2-3 `code-explorer` agents **in parallel**:
+1. Launch 2-3 `dev-kit:code-explorer` agents **in parallel**:
 
 | Agent Focus      | Goal                                       |
 | ---------------- | ------------------------------------------ |
@@ -193,7 +193,7 @@ Use **AskUserQuestion** to confirm.
 
 ### Generate Alternatives
 
-Launch 2-3 `code-architect` agents **in parallel** with different focuses:
+Launch 2-3 `dev-kit:code-architect` agents **in parallel** with different focuses:
 
 | Focus              | Approach                              |
 | ------------------ | ------------------------------------- |
@@ -283,7 +283,7 @@ Create `docs/specs/[spec-name]/implementation/[task-group].md`:
 
 ### Launch Reviewers
 
-Launch 3 `code-reviewer` agents **in parallel**:
+Launch 3 `dev-kit:code-reviewer` agents **in parallel**:
 
 | Focus          | What to Check                  |
 | -------------- | ------------------------------ |

@@ -23,13 +23,13 @@ Key files: ❯`ls -la *.json *.toml *.yaml *.yml 2>/dev/null | head -5 || echo "
 
 Use the following agent to assist answering questions:
 
-1. **code-explorer** (For codebase questions): Launch this agent when answering questions about the codebase. It traces execution paths, maps architecture, identifies patterns, and documents dependencies - providing accurate, thorough answers about how the code works.
+1. **dev-kit:code-explorer** (For codebase questions): Launch this agent when answering questions about the codebase. It traces execution paths, maps architecture, identifies patterns, and documents dependencies - providing accurate, thorough answers about how the code works.
 
 **Agent invocation pattern:**
 
-- For "how does X work?" questions: Use code-explorer to trace the feature
-- For "where is X?" questions: Use code-explorer to locate and map the code
-- For architecture questions: Use code-explorer to map structure and relationships
+- For "how does X work?" questions: Use dev-kit:code-explorer to trace the feature
+- For "where is X?" questions: Use dev-kit:code-explorer to locate and map the code
+- For architecture questions: Use dev-kit:code-explorer to map structure and relationships
 - Return exploration findings to construct clear, accurate answers
 
 ## Core Philosophy: Clarity Through Understanding

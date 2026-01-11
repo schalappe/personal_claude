@@ -26,15 +26,15 @@ Use global-standards skill.
 
 Use the following agents for architectural analysis:
 
-1. **code-explorer** (Understanding phase): Launch this agent to deeply analyze the existing codebase. It traces execution paths, maps architecture layers, identifies patterns and abstractions, and documents dependencies - essential for understanding the current state before proposing changes.
+1. **dev-kit:code-explorer** (Understanding phase): Launch this agent to deeply analyze the existing codebase. It traces execution paths, maps architecture layers, identifies patterns and abstractions, and documents dependencies - essential for understanding the current state before proposing changes.
 
-2. **code-architect** (Design phase): Launch this agent to design architectural improvements. It analyzes existing patterns and conventions, then provides comprehensive blueprints with specific changes, component designs, and data flows.
+2. **dev-kit:code-architect** (Design phase): Launch this agent to design architectural improvements. It analyzes existing patterns and conventions, then provides comprehensive blueprints with specific changes, component designs, and data flows.
 
 **Agent invocation pattern:**
 
-- Start with code-explorer to map current architecture thoroughly
+- Start with dev-kit:code-explorer to map current architecture thoroughly
 - Identify pain points and areas needing improvement
-- Use code-architect to design pragmatic solutions
+- Use dev-kit:code-architect to design pragmatic solutions
 - Validate proposals against YAGNI principles
 
 ## Core Philosophy: YAGNI-First Architecture

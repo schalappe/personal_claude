@@ -25,15 +25,15 @@ Use logging-standards skill.
 
 Use the following agents to assist with logging improvements:
 
-1. **code-explorer** (Phase 1): Launch this agent to analyze existing logging patterns. It will identify current log statements, logging libraries, and request flow patterns.
+1. **dev-kit:code-explorer** (Phase 1): Launch this agent to analyze existing logging patterns. It will identify current log statements, logging libraries, and request flow patterns.
 
-2. **code-reviewer** (Phase 3): After implementing changes, launch this agent to verify logging improvements follow best practices.
+2. **dev-kit:code-reviewer** (Phase 3): After implementing changes, launch this agent to verify logging improvements follow best practices.
 
 **Agent invocation pattern:**
 
-- Start with code-explorer to understand current logging patterns and request flows
+- Start with dev-kit:code-explorer to understand current logging patterns and request flows
 - Implement wide event logging improvements
-- Use code-reviewer to validate the changes
+- Use dev-kit:code-reviewer to validate the changes
 
 ## Core Philosophy: Query-First Logging
 
@@ -62,7 +62,7 @@ Before making changes, understand the current state:
 □ What queries would operators want to run?
 ```
 
-Launch **code-explorer** to trace:
+Launch **dev-kit:code-explorer** to trace:
 - Current logging patterns and imports
 - Request flow from entry to response
 - Error handling paths
@@ -138,7 +138,7 @@ ctx.add(
 
 After implementation:
 
-1. Launch **code-reviewer** to verify changes
+1. Launch **dev-kit:code-reviewer** to verify changes
 2. Verify logs are structured JSON
 3. Confirm wide events contain essential fields
 4. Check sensitive data is not logged

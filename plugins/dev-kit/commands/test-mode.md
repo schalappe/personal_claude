@@ -28,15 +28,15 @@ Invoke `testing-standards` skill.
 
 Use the following agents to assist testing:
 
-1. **code-explorer** (Before writing tests): Launch this agent to deeply understand the code being tested. It traces execution paths, identifies edge cases, and maps dependencies that tests should cover.
+1. **dev-kit:code-explorer** (Before writing tests): Launch this agent to deeply understand the code being tested. It traces execution paths, identifies edge cases, and maps dependencies that tests should cover.
 
-2. **code-reviewer** (After writing tests): Launch this agent to review test quality. It checks for missing edge cases, brittle tests, and ensures tests follow best practices.
+2. **dev-kit:code-reviewer** (After writing tests): Launch this agent to review test quality. It checks for missing edge cases, brittle tests, and ensures tests follow best practices.
 
 **Agent invocation pattern:**
 
-- Start with code-explorer to understand what behaviors need testing
+- Start with dev-kit:code-explorer to understand what behaviors need testing
 - Write tests based on the exploration findings
-- Use code-reviewer to validate test quality and coverage
+- Use dev-kit:code-reviewer to validate test quality and coverage
 
 ## Core Philosophy: Tests as Documentation
 

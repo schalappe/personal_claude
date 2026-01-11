@@ -33,7 +33,7 @@ Always read product mission, roadmap, and tech stack before asking questions. Th
 
 ### Reusability First
 
-- Launch code-explorer subagents to find reusable code
+- Launch dev-kit:code-explorer subagents to find reusable code
 - Document existing components with file paths
 - Avoid specifying new components when existing ones work
 - Follow established patterns identified by subagents
@@ -90,7 +90,7 @@ Use this exact structure for `spec.md`:
 [One section per visual file]
 
 ## Existing Code to Leverage
-[Based on code-explorer findings]
+[Based on dev-kit:code-explorer findings]
 **[Component/code found] - `path/to/file`**
 - What it does: [Description]
 - How to reuse: [Extend, replicate, import]
@@ -98,7 +98,7 @@ Use this exact structure for `spec.md`:
 [Max 5 code areas]
 
 ## Architecture Approach
-[Based on code-architect blueprint]
+[Based on dev-kit:code-architect blueprint]
 **Component Design:** [Key components and responsibilities]
 **Data Flow:** [Entry points → transformations → outputs]
 **Integration Points:** [How feature integrates with existing code]
