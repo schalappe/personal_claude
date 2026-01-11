@@ -78,17 +78,39 @@ Available task groups:
 
 ---
 
-## Phase 2: Codebase Exploration
+## Phase 2: Load Codebase Context
 
 ### Analyze Task Requirements
 
 1. Read the selected task group from @[spec-path]/tasks.md
-2. Read @[spec-path]/spec.md and @[spec-path]/planning/requirements.md for context
+2. Read @[spec-path]/planning/requirements.md for context
 3. Identify key codebase areas that will be affected
 
-### Launch Code Explorers
+### Check Spec Coverage
 
-Launch 2-3 `code-explorer` agents **in parallel**:
+Read @[spec-path]/spec.md and check for these sections:
+
+- "Existing Code to Leverage"
+- "Architecture Approach"
+
+**If spec has both sections with content:**
+
+1. Extract all file paths mentioned in "Existing Code to Leverage"
+2. Read each referenced file to build understanding
+3. Note the architecture approach for Phase 4
+4. Skip to Phase 3 (Clarifying Questions)
+
+Output:
+
+```markdown
+✅ Loaded context from spec.md
+- Referenced files: [N] read
+- Architecture approach: Defined
+```
+
+**If spec is missing or lacks these sections:**
+
+1. Launch 2-3 `code-explorer` agents **in parallel**:
 
 | Agent Focus      | Goal                                       |
 | ---------------- | ------------------------------------------ |
@@ -98,15 +120,17 @@ Launch 2-3 `code-explorer` agents **in parallel**:
 
 Each agent should return 5-10 key files to read.
 
-**Wait for agents to complete.**
+2. **Wait for agents to complete**
+3. Read all files they identified
+4. Summarize findings
 
-### Read Key Files
+Output:
 
-After agents complete, **read all files they identified** to build deep understanding.
-
-### Summarize Findings
-
-Present comprehensive summary of patterns discovered.
+```markdown
+ℹ️ Spec lacked exploration data — ran fresh analysis
+- Agents launched: [N]
+- Key files identified: [M]
+```
 
 ---
 
@@ -135,9 +159,39 @@ If user says "whatever you think is best", provide your recommendation and get e
 
 ---
 
-## Phase 4: Architecture Design
+## Phase 4: Architecture Approach
 
-### Launch Architects
+### Check Existing Architecture
+
+**If spec.md has "Architecture Approach" section (from Phase 2 check):**
+
+Present to user:
+
+```markdown
+The spec already defines an architecture approach:
+
+**Component Design:**
+[Summary from spec]
+
+**Data Flow:**
+[Summary from spec]
+
+**Integration Points:**
+[Summary from spec]
+
+Options:
+1. Use this approach (Recommended)
+2. Explore alternative approaches
+```
+
+Use **AskUserQuestion** to confirm.
+
+- If user selects option 1 → Proceed to Phase 5
+- If user selects option 2 → Continue to "Generate Alternatives" below
+
+**If spec lacks architecture OR user wants alternatives:**
+
+### Generate Alternatives
 
 Launch 2-3 `code-architect` agents **in parallel** with different focuses:
 

@@ -38,7 +38,7 @@ Check for spec or requirements:
 
 **Validation:**
 
-- If neither exists → Stop: "I need a spec.md or requirements.md to create tasks. Run `/shape-spec` or `/write-spec` first."
+- If neither exists → Stop: "No spec or requirements found. Run `/shape-spec` first to gather requirements."
 - If at least one exists → Proceed
 
 ### Read and Analyze
