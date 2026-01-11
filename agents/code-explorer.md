@@ -4,6 +4,7 @@ description: Deeply analyzes existing codebase features by tracing execution pat
 tools: Glob, Grep, LS, Read, NotebookRead, WebFetch, TodoWrite, WebSearch, KillShell, BashOutput
 model: haiku
 color: yellow
+skill: global-standards
 ---
 
 # Code Explorer
