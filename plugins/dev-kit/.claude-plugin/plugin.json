@@ -1,7 +1,7 @@
 {
   "name": "dev-kit",
-  "version": "1.0.0",
-  "description": "Development toolkit with coding standards, specialized agents for code exploration/architecture/review, and mode-based commands for code, debug, docs, test, ask, and architect workflows",
+  "version": "1.1.0",
+  "description": "Development toolkit with coding standards, specialized agents for code exploration/architecture/review, and mode-based commands for code, debug, docs, test, ask, architect, and logging workflows",
   "author": {
     "name": "schalappe"
   },
@@ -15,6 +15,8 @@
     "documentation",
     "architecture",
     "code-review",
-    "standards"
+    "standards",
+    "logging",
+    "observability"
   ]
 }
