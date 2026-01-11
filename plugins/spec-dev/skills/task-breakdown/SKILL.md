@@ -1,7 +1,7 @@
 ---
 name: task-breakdown
 description: This skill should be used when the user asks to "break down a spec into tasks", "create a task list", "plan implementation tasks", "organize development work", "structure feature development", "create implementation phases", or mentions task planning, task organization, or implementation ordering. Provides task sizing rules, templates, and testing strategy for implementation planning.
-version: 0.1.0
+version: 1.0.0
 ---
 
 # Task Breakdown Skill

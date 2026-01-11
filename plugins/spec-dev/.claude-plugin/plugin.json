@@ -1,0 +1,8 @@
+{
+  "name": "spec-dev",
+  "version": "1.0.0",
+  "description": "Specification-driven development workflow with commands for product planning, requirements gathering, spec writing, task breakdown, and implementation. Provides a complete pipeline from idea to implementation.",
+  "author": {
+    "name": "schalappe"
+  }
+}

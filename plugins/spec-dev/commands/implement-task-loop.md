@@ -1,7 +1,7 @@
 ---
 description: Implement a task group autonomously using Ralph Loop for iterative development until tests pass
 argument-hint: [spec-name] [task-group-number]
-allowed-tools: Read, Write, Edit, Glob, Grep, Bash(git:*, npm:*, bun:*, pnpm:*, yarn:*, make:*, ls:*, test:*, mkdir:*), Task, Skill, TodoWrite
+allowed-tools: Read, Write, Edit, Glob, Grep, Bash(git:*, npm:*, bun:*, pnpm:*, yarn:*, make:*, ls:*, test:*, mkdir:*), Task, Skill, AskUserQuestion, TodoWrite
 ---
 
 # Implement Task Loop
