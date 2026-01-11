@@ -3,7 +3,7 @@ description: Write code, implement features, and fix bugs
 argument-hint: [feature or bug to implement/fix]
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash, Task, mcp__context7__*
 model: inherit
-skill: global-standards, testing_standards
+skill: global-standards, testing-standards
 ---
 
 # Code Mode

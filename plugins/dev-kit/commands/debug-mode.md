@@ -3,7 +3,7 @@ description: Debug software, identify and fix issues, and ensure code quality
 argument-hint: [bug description or error message]
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash, Task, mcp__context7__*
 model: opus
-skill: global-standards, testing_standards
+skill: global-standards, testing-standards
 ---
 
 # Debug Mode

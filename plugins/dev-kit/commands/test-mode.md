@@ -3,7 +3,7 @@ description: Write tests for code, verify functionality, and ensure code quality
 argument-hint: [file or function to test]
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash, Task, mcp__context7__*
 model: sonnet
-skill: testing_standards
+skill: testing-standards
 ---
 
 # Test Mode
