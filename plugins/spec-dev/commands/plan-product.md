@@ -37,7 +37,7 @@ Check for existing docs: ❯`ls -la docs/product/ 2>/dev/null || echo "NO_DOCS"`
 
 ### Collect Required Information
 
-> **Domain Knowledge:** The **product-planning** skill provides templates and quality standards for product documents.
+Invoke the **product-planning** skill to provide templates and quality standards for product documents.
 
 Gather from the user:
 
@@ -74,7 +74,7 @@ Ready to proceed?
 
 ## Phase 2: Create Mission Document
 
-> **Domain Knowledge:** The **product-planning** skill provides the mission template structure.
+Invoke the **product-planning** skill to provide the mission template structure.
 
 Create `docs/product/mission.md` following the mission template from the skill.
 
@@ -95,7 +95,7 @@ Review to ensure it matches your vision. Ready for Phase 3?
 
 ## Phase 3: Create Roadmap
 
-> **Domain Knowledge:** The **product-planning** skill provides the onion layer philosophy, feature definitions, effort scale, and ordering criteria.
+Invoke the **product-planning** skill to provide the onion layer philosophy, feature definitions, effort scale, and ordering criteria.
 
 ### Build the Roadmap
 
@@ -125,7 +125,7 @@ Review to ensure alignment. Ready for Phase 4?
 
 ## Phase 4: Document Tech Stack
 
-> **Domain Knowledge:** The **product-planning** skill provides tech stack documentation patterns.
+Invoke the **product-planning** skill to provide tech stack documentation patterns.
 
 ### Gather Tech Stack Information
 

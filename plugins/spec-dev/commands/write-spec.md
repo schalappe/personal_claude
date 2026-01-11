@@ -50,7 +50,7 @@ Check requirements: ❯`test -f [spec-path]/planning/requirements.md && echo "EX
 
 ## Phase 2: Codebase Exploration
 
-> **Domain Knowledge:** The **spec-creation** skill provides the specification template and quality checklist.
+Invoke the **spec-creation** skill to provide the specification template and quality checklist.
 
 ### Launch Code Explorers
 

@@ -76,7 +76,7 @@ Proceeding to requirements gathering...
 
 ### Analyze Product Context
 
-> **Domain Knowledge:** The **spec-creation** skill provides templates and quality standards for this phase.
+Invoke the **spec-creation** skill to provide templates and quality standards for this phase.
 
 Read these files to understand broader context:
 

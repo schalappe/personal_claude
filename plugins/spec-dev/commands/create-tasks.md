@@ -50,7 +50,7 @@ Check for spec or requirements:
 
 ## Phase 2: Create Task List
 
-> **Domain Knowledge:** The **task-breakdown** skill provides sizing rules, grouping strategy, task template, and testing strategy.
+Invoke the **task-breakdown** skill to provide sizing rules, grouping strategy, task template, and testing strategy.
 
 ### Apply Skill Standards
 
