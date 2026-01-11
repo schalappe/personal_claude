@@ -17,6 +17,7 @@ A Claude Code plugin providing development standards, specialized analysis agent
 | `frontend-design` | UI/UX implementation with distinctive aesthetics using shadcn/ui |
 | `testing-standards` | Strategic testing approach with minimal, behavior-focused tests |
 | `codebase-documenter` | README, architecture docs, API documentation, code comments |
+| `logging-standards` | Wide events, structured logging, observability, production debugging |
 
 Skills are automatically activated when relevant queries are detected.
 
@@ -82,6 +83,16 @@ Review and improve application architecture.
 /dev-kit:architect-mode [architecture concern]
 ```
 
+### /dev-kit:logging-mode
+
+Add or improve logging with wide events and structured logging.
+
+```bash
+/dev-kit:logging-mode [file or module to add/improve logging]
+```
+
+Transforms scattered log statements into queryable wide events.
+
 ## Installation
 
 Add this plugin to your Claude Code configuration:
@@ -108,12 +119,14 @@ dev-kit/
 │   ├── code-mode.md       # Coding command
 │   ├── debug-mode.md      # Debugging command
 │   ├── docs-mode.md       # Documentation command
+│   ├── logging-mode.md    # Logging command
 │   └── test-mode.md       # Testing command
 ├── skills/
 │   ├── backend-design/    # API design patterns
 │   ├── codebase-documenter/ # Documentation skill
 │   ├── frontend-design/   # UI/UX patterns
 │   ├── global-standards/  # Coding standards
+│   ├── logging-standards/ # Structured logging patterns
 │   └── testing-standards/ # Testing patterns
 └── README.md
 ```
