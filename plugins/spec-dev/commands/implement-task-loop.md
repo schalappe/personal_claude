@@ -1,36 +1,17 @@
 ---
 description: Generate a Ralph Loop prompt for autonomous task implementation
-argument-hint: [spec-name] [task-group-number]
+argument-hint: [spec-name] [task-group(s)]
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash(ls:*, test:*, mkdir:*), AskUserQuestion, TodoWrite
 ---
 
 # Implement Task Loop
 
-> **Alternative to `/implement-task`** — Generates a prompt for Ralph Loop
-
 Generate a self-contained prompt for the Ralph Loop technique. The prompt includes everything Claude needs to iterate autonomously until tests pass.
 
-## When to Use This vs `/implement-task`
+## Task Group Selection
 
-| Aspect      | `/implement-task`                 | `/implement-task-loop`              |
-| ----------- | --------------------------------- | ----------------------------------- |
-| Interaction | High (7 phases with questions)    | Low (autonomous execution)          |
-| Control     | Manual approval gates             | Iterative until done                |
-| Best for    | Complex decisions, new patterns   | Well-defined tasks                  |
-| Output      | Implemented code + reports        | Ralph Loop prompt file              |
-
-**Use `/implement-task-loop` when:**
-
-- Task group has clear acceptance criteria
-- Tests can verify completion
-- You want autonomous execution
-- Architecture is already defined in spec
-
-**Use `/implement-task` when:**
-
-- You need to make design decisions
-- Task requires human judgment
-- Architecture needs discussion
+- **Single group**: `3` → Creates prompt for group 3
+- **Range of groups**: `1-6` → Creates ONE combined prompt for groups 1 through 6
 
 ## Prerequisites
 
@@ -56,11 +37,14 @@ Find specs with tasks: !`ls docs/specs/*/tasks.md 2>/dev/null || echo "NO_TASKS"
 - If multiple specs and none specified → Ask which to work on
 - If one spec → Use that spec
 
-### Read Task Group
+### Read Task Group(s)
 
 1. Read `docs/specs/[spec-name]/tasks.md`
-2. If group number not specified → List available groups and ask
-3. Extract the specified task group:
+2. Parse the argument:
+   - If not specified → List available groups and ask
+   - If single number (e.g., `3`) → Extract group 3
+   - If range (e.g., `1-6`) → Extract groups 1, 2, 3, 4, 5, and 6
+3. For each group, extract:
    - Group title
    - All subtasks with details
    - Acceptance criteria
@@ -68,7 +52,7 @@ Find specs with tasks: !`ls docs/specs/*/tasks.md 2>/dev/null || echo "NO_TASKS"
 
 **Validation:**
 
-- If dependencies not complete → Stop: "Task Group [N] depends on [X, Y] which are not complete."
+- If dependencies for any group are not complete → Stop: "Task Group [N] depends on [X, Y] which are not complete."
 
 ---
 
@@ -105,7 +89,9 @@ Create a self-contained prompt that includes everything Claude needs.
 
 ### Prompt Structure
 
-Build the prompt with these sections:
+Build the prompt with these sections. Adapt based on single group vs. range:
+
+**For single group (e.g., `3`):**
 
 ```markdown
 # Ralph Loop: [Task Group Title]
@@ -113,7 +99,7 @@ Build the prompt with these sections:
 ## Mission
 
 Implement Task Group [N]: [Title] from the specification.
-Iterate until ALL acceptance criteria are met, then output `<promise>GROUP [N] COMPLETE</promise>`
+Iterate until ALL acceptance criteria are met, then output `<promise>COMPLETE</promise>`
 
 ## Task Group Details
 
@@ -154,16 +140,72 @@ Before outputting the promise, verify:
 - [ ] Tests pass for this task group
 - [ ] Code follows project conventions
 
-When ALL criteria are met, output: `<promise>GROUP [N] COMPLETE</promise>`
+When ALL criteria are met, output: `<promise>COMPLETE</promise>`
+```
+
+**For range of groups (e.g., `1-6`):**
+
+```markdown
+# Ralph Loop: Groups [START]-[END]
+
+## Mission
+
+Implement Task Groups [START] through [END] from the specification.
+Work through groups sequentially. Iterate until ALL groups are complete, then output `<promise>COMPLETE</promise>`
+
+## Task Groups
+
+### Group [N1]: [Title]
+
+[Paste full task group from tasks.md including all subtasks and acceptance criteria]
+
+### Group [N2]: [Title]
+
+[Paste full task group from tasks.md including all subtasks and acceptance criteria]
+
+[... repeat for all groups in range ...]
+
+## Architecture Context
+
+[Paste architecture approach from spec.md OR note "Follow existing patterns in the codebase"]
+
+## Existing Code to Reference
+
+[List files from "Existing Code to Leverage" section, or key files identified]
+
+## Test Command
+
+Run tests with: `[detected test command]`
+
+## Implementation Rules
+
+1. **Work sequentially** — Complete each group before moving to the next
+2. **Read before writing** — Understand existing patterns first
+3. **Small iterations** — Make incremental changes, test frequently
+4. **Follow conventions** — Match existing code style
+5. **Update tasks.md** — Mark subtasks `[x]` as you complete them
+6. **Run tests** — Verify each change passes tests
+
+## Completion Checklist
+
+Before outputting the promise, verify:
+
+- [ ] All subtasks for ALL groups marked `[x]`
+- [ ] All acceptance criteria for ALL groups met
+- [ ] Tests pass
+- [ ] Code follows project conventions
+
+When ALL criteria are met, output: `<promise>COMPLETE</promise>`
 ```
 
 ### Calculate Recommended Iterations
 
-Based on task count:
+Based on total subtask count (across all groups if range):
 
 - 1-3 subtasks → 10 iterations
 - 4-6 subtasks → 15 iterations
-- 7+ subtasks → 20 iterations
+- 7-10 subtasks → 20 iterations
+- 11+ subtasks → 25 iterations
 
 Add this recommendation at the top of the prompt file as a comment.
 
@@ -177,26 +219,50 @@ Create directory if needed: `docs/specs/[spec-name]/ralph-prompt/`
 
 ### Write Prompt File
 
-Save the generated prompt to: `docs/specs/[spec-name]/ralph-prompt/[task-group].md`
+Save the generated prompt to: `docs/specs/[spec-name]/ralph-prompt/[filename].md`
 
-The task-group filename should be descriptive, e.g., `group-1-core-infrastructure.md` or `group-2-api-endpoints.md`
+Filename conventions:
+- Single group: `group-3-api-endpoints.md`
+- Range: `groups-1-6.md`
 
 ### Display Summary
+
+**For single group:**
 
 ```markdown
 ## Ralph Loop Prompt Generated
 
 **Spec:** [spec-name]
 **Task Group:** [N] - [Title]
-**Saved to:** `docs/specs/[spec-name]/ralph-prompt/[task-group].md`
+**Saved to:** `docs/specs/[spec-name]/ralph-prompt/[filename].md`
 
 **Recommended settings:**
 - Max iterations: [calculated]
-- Completion promise: `GROUP [N] COMPLETE`
+- Completion promise: `COMPLETE`
 
 **To run:**
 Copy the prompt content and start Ralph Loop with:
-`/ralph-loop --max-iterations [N] --completion-promise "GROUP [N] COMPLETE"`
+`/ralph-loop --max-iterations [N] --completion-promise "COMPLETE"`
+
+Or paste the prompt directly into a new Claude session.
+```
+
+**For range of groups:**
+
+```markdown
+## Ralph Loop Prompt Generated
+
+**Spec:** [spec-name]
+**Task Groups:** [START] through [END]
+**Saved to:** `docs/specs/[spec-name]/ralph-prompt/groups-[START]-[END].md`
+
+**Recommended settings:**
+- Max iterations: [calculated]
+- Completion promise: `COMPLETE`
+
+**To run:**
+Copy the prompt content and start Ralph Loop with:
+`/ralph-loop --max-iterations [N] --completion-promise "COMPLETE"`
 
 Or paste the prompt directly into a new Claude session.
 ```
@@ -207,7 +273,7 @@ Or paste the prompt directly into a new Claude session.
 
 - **Do not ask clarifying questions** — use spec and requirements as-is
 - **Use defined architecture** — do not explore alternatives
-- **Focus on one group** — generate prompt for one group at a time
+- **One prompt per invocation** — single group = one prompt, range = one combined prompt
 - **Include all context** — the prompt must be self-contained
 - **Do not execute** — only generate and save the prompt
 
@@ -215,15 +281,21 @@ Or paste the prompt directly into a new Claude session.
 
 ## Example Output
 
-For a task group implementing authentication:
+**Single group:**
 
 ```text
 docs/specs/auth-feature/ralph-prompt/group-1-auth-core.md
 ```
 
-Contents would include:
+**Range of groups:**
 
-- Mission with task group details
+```text
+docs/specs/auth-feature/ralph-prompt/groups-1-6.md
+```
+
+Contents include:
+
+- Mission with task group details (all groups if range)
 - All subtasks and acceptance criteria
 - Architecture context from spec
 - Files to reference
