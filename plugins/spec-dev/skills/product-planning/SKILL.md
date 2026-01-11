@@ -1,5 +1,6 @@
 ---
 name: product-planning
+version: 1.0.0
 description: This skill should be used when the user asks to "plan a product", "create a product plan", "define product vision", "create a mission document", "build a roadmap", "document tech stack", "plan features", or mentions needing help with product strategy, feature planning, or product documentation. Provides templates and standards for product documentation.
 ---
 

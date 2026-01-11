@@ -1,8 +1,9 @@
 ---
 description: Review and improve application architecture with pragmatic, YAGNI-based design principles
 argument-hint: [area or concern to analyze]
-allowed-tools: Read, Grep, Glob, Task, WebSearch
+allowed-tools: Read, Grep, Glob, Task, WebSearch, mcp__context7__*
 model: opus
+skill: global-standards, backend-design, frontend-design
 ---
 
 # Architect Mode

@@ -3,6 +3,7 @@ description: Write tests for code, verify functionality, and ensure code quality
 argument-hint: [file or function to test]
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash, Task, mcp__context7__*
 model: sonnet
+skill: testing_standards
 ---
 
 # Test Mode
@@ -21,7 +22,7 @@ Test framework: ❯`cat package.json 2>/dev/null | grep -E '"jest"|"vitest"|"moc
 Test directory: ❯`ls -d tests/ test/ __tests__/ spec/ 2>/dev/null | head -1 || echo "No test directory found"`
 Recent test files: ❯`find . -name "*.test.*" -o -name "*_test.py" -o -name "test_*.py" 2>/dev/null | head -5 || echo "No test files found"`
 
-Use testing-standards skill.
+Invoke `testing-standards` skill.
 
 ## Agent Workflow
 

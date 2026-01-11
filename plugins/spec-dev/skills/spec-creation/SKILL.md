@@ -1,5 +1,6 @@
 ---
 name: spec-creation
+version: 1.0.0
 description: This skill should be used when the user asks to "create a spec", "write a specification", "plan a feature", "gather requirements", "shape an idea", "spec out [feature]", "document requirements", or mentions needing to prepare feature documentation before development. Provides philosophy, templates, and quality standards for specification creation.
 ---
 

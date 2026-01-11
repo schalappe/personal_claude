@@ -3,6 +3,7 @@ description: Write clear and comprehensive documentation for code, architectures
 argument-hint: [what to document - file, API, architecture, etc.]
 allowed-tools: Read, Write, Edit, Grep, Glob, Task, WebSearch
 model: sonnet
+skill: codebase-documenter
 ---
 
 # Docs Mode
@@ -21,7 +22,7 @@ Existing docs: ❯`find . -name "*.md" -not -path "./node_modules/*" -not -path 
 README status: ❯`test -f README.md && echo "README.md exists ($(wc -l < README.md) lines)" || echo "No README.md"`
 Doc patterns: ❯`ls -d docs/ documentation/ doc/ 2>/dev/null || echo "No docs directory"`
 
-Use codebase-documenter skill.
+Invoke `codebase-documenter` skill.
 
 ## Agent Workflow
 
