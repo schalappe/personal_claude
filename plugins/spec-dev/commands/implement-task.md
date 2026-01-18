@@ -303,6 +303,16 @@ Use **AskUserQuestion**: fix now, fix later, or proceed as-is?
 
 If fixing, apply changes and re-run affected tests.
 
+### Simplify and Refine Code
+
+After addressing review issues, launch `dev-kit:code-simplifier` agent to:
+
+- Simplify recently modified code for clarity and consistency
+- Apply project-specific coding standards
+- Remove unnecessary complexity while preserving functionality
+
+**Wait for simplifier to complete.** Review any changes it suggests.
+
 ---
 
 ## Phase 7: Verification
