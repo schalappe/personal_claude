@@ -32,11 +32,14 @@ Use the following agents to assist testing:
 
 2. **dev-kit:code-reviewer** (After writing tests): Launch this agent to review test quality. It checks for missing edge cases, brittle tests, and ensures tests follow best practices.
 
+3. **dev-kit:code-simplifier** (Final refinement): Launch this agent to simplify and refine test code. It improves test readability, removes redundancy, and ensures tests follow project conventions.
+
 **Agent invocation pattern:**
 
 - Start with dev-kit:code-explorer to understand what behaviors need testing
 - Write tests based on the exploration findings
 - Use dev-kit:code-reviewer to validate test quality and coverage
+- Finish with dev-kit:code-simplifier to refine tests for clarity and maintainability
 
 ## Core Philosophy: Tests as Documentation
 

@@ -30,11 +30,14 @@ Use the following agents to assist debugging:
 
 2. **dev-kit:code-reviewer** (Phase 3-4): Launch this agent to analyze the suspected code for bugs, logic errors, and potential issues. It provides confidence-rated findings to prioritize investigation.
 
+3. **dev-kit:code-simplifier** (Phase 6): After implementing fixes, launch this agent to simplify and refine the fix implementation. It ensures the fix is clean, maintainable, and follows project standards.
+
 **Agent invocation pattern:**
 
 - Start with dev-kit:code-explorer to understand the affected code paths
 - Use dev-kit:code-reviewer to systematically identify potential root causes
 - Return findings to inform hypothesis generation
+- After fix implementation, use dev-kit:code-simplifier to refine the fix for clarity
 
 ## Core Philosophy: Hypothesis-Driven Debugging
 

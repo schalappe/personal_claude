@@ -34,11 +34,14 @@ Use the following agents throughout implementation:
 
 3. **dev-kit:code-reviewer** (After coding): Launch this agent to review your implementation for bugs, logic errors, security vulnerabilities, and adherence to project conventions. Use its confidence-rated findings to improve code quality.
 
+4. **dev-kit:code-simplifier** (Final refinement): Launch this agent after code-reviewer to simplify and refine the implementation. It improves clarity, consistency, and maintainability while preserving exact functionality.
+
 **Agent invocation pattern:**
 
 - Start with dev-kit:code-explorer to understand context before writing
 - Use dev-kit:code-architect for features requiring architectural decisions
-- Finish with dev-kit:code-reviewer to catch issues before completion
+- Use dev-kit:code-reviewer to catch issues in implementation
+- Finish with dev-kit:code-simplifier to refine code for clarity and maintainability
 
 ## Scope of Work
 

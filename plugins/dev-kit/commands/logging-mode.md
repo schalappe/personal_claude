@@ -29,11 +29,14 @@ Use the following agents to assist with logging improvements:
 
 2. **dev-kit:code-reviewer** (Phase 3): After implementing changes, launch this agent to verify logging improvements follow best practices.
 
+3. **dev-kit:code-simplifier** (Phase 4): Launch this agent to refine the logging implementation. It ensures logging code is clean, consistent, and follows project standards.
+
 **Agent invocation pattern:**
 
 - Start with dev-kit:code-explorer to understand current logging patterns and request flows
 - Implement wide event logging improvements
 - Use dev-kit:code-reviewer to validate the changes
+- Finish with dev-kit:code-simplifier to refine logging code for clarity and consistency
 
 ## Core Philosophy: Query-First Logging
 
