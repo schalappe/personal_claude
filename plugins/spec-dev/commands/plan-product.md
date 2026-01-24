@@ -6,8 +6,6 @@ allowed-tools: Read, Write, Glob, Bash(ls:*, mkdir:*, test:*), Skill, AskUserQue
 
 # Plan Product
 
-> **Workflow Step 1 of 5** — Next: `/shape-spec`
-
 Create foundational product documentation: mission, roadmap, and tech stack. This is the starting point for product development.
 
 ## Prerequisites
