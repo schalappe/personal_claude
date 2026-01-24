@@ -1,26 +1,22 @@
 ---
-description: Implement a single task group from tasks.md using a multi-phase workflow that ensures deep codebase understanding, thoughtful architecture design, and high-quality implementation
+description: Implement a single task group from plan.md using a multi-phase workflow that ensures deep codebase understanding, thoughtful architecture design, and high-quality implementation
 argument-hint: [spec-name] [task-group-number]
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash(git:*, npm:*, bun:*, pnpm:*, yarn:*, make:*, ls:*, test:*, mkdir:*), Task, Skill, AskUserQuestion, TodoWrite
 ---
 
 # Implement Task
 
-> **Workflow Step 5 of 5** — Previous: `/create-tasks`
-
 Implement a single task group with deep codebase understanding, clarifying questions, architecture design, and quality review.
 
 ## Prerequisites
 
-- Tasks defined at `docs/specs/[spec-name]/tasks.md`
-- Run `/create-tasks` first if tasks don't exist
+- Plan defined at `docs/specs/[spec-name]/plan.md` (contains spec + tasks)
+- Run `/shape-spec` first in plan mode if plan doesn't exist
 
 ## Output
 
 - Implemented code changes
-- `docs/specs/[spec-name]/implementation/[task-group].md` — Implementation report
-- `docs/specs/[spec-name]/verification/[task-group]-verification.md` — Verification report
-- Updated `tasks.md` with completed checkboxes
+- Updated `plan.md` with completed checkboxes
 
 ---
 
@@ -42,24 +38,24 @@ Implement a single task group with deep codebase understanding, clarifying quest
 
 Initialize todos for all phases.
 
-### Locate Spec and Tasks
+### Locate Spec and Plan
 
-Find specs with tasks: ❯`ls docs/specs/*/tasks.md 2>/dev/null || echo "NO_TASKS"`
+Find specs with plans: ❯`ls docs/specs/*/plan.md 2>/dev/null || echo "NO_PLAN"`
 
 **Validation:**
 
-- If `NO_TASKS` → Stop: "No tasks.md found. Run `/create-tasks` first to generate implementation tasks."
+- If `NO_PLAN` → Stop: "No plan.md found. Run `/shape-spec` first in plan mode to create the specification."
 - If multiple specs → Ask which to work on
 - If one spec → Use that spec
 
-### Validate Tasks File
+### Validate Plan File
 
-Check tasks exist: ❯`test -f [spec-path]/tasks.md && echo "EXISTS" || echo "MISSING"`
+Check plan exists: ❯`test -f [spec-path]/plan.md && echo "EXISTS" || echo "MISSING"`
 
 **Validation:**
 
-- If `MISSING` → Stop: "No tasks.md at `[spec-path]`. Run `/create-tasks [spec-name]` first."
-- If `EXISTS` → Read @[spec-path]/tasks.md
+- If `MISSING` → Stop: "No plan.md at `[spec-path]`. Run `/shape-spec [spec-name]` first in plan mode."
+- If `EXISTS` → Read @[spec-path]/plan.md
 
 ### Select Task Group
 
@@ -82,20 +78,20 @@ Available task groups:
 
 ### Analyze Task Requirements
 
-1. Read the selected task group from @[spec-path]/tasks.md
-2. Read @[spec-path]/planning/requirements.md for context
+1. Read the selected task group from @[spec-path]/plan.md (tasks are in "Implementation Tasks" section)
+2. Read @[spec-path]/shape.md for context and decisions
 3. Identify key codebase areas that will be affected
 
 ### Check Spec Coverage
 
-Read @[spec-path]/spec.md and check for these sections:
+Read @[spec-path]/plan.md and @[spec-path]/references.md, check for these sections:
 
-- "Existing Code to Leverage"
-- "Architecture Approach"
+- "Architecture Approach" (in plan.md)
+- Code references (in references.md)
 
-**If spec has both sections with content:**
+**If plan has architecture and references have code pointers:**
 
-1. Extract all file paths mentioned in "Existing Code to Leverage"
+1. Extract all file paths from references.md
 2. Read each referenced file to build understanding
 3. Note the architecture approach for Phase 4
 4. Skip to Phase 3 (Clarifying Questions)
@@ -103,7 +99,7 @@ Read @[spec-path]/spec.md and check for these sections:
 Output:
 
 ```markdown
-✅ Loaded context from spec.md
+✅ Loaded context from plan.md and references.md
 - Referenced files: [N] read
 - Architecture approach: Defined
 ```
@@ -163,7 +159,7 @@ If user says "whatever you think is best", provide your recommendation and get e
 
 ### Check Existing Architecture
 
-**If spec.md has "Architecture Approach" section (from Phase 2 check):**
+**If plan.md has "Architecture Approach" section (from Phase 2 check):**
 
 Present to user:
 
@@ -235,7 +231,7 @@ Check available skills and invoke all that are appropriate for this task.
 4. Write clean, well-documented code
 5. Update todos as you progress
 
-### Update tasks.md
+### Update plan.md
 
 Mark task group and all subtasks as complete:
 
@@ -243,38 +239,6 @@ Mark task group and all subtasks as complete:
 - [x] N.0 Complete [layer]
   - [x] N.1 [subtask]
   - [x] N.2 [subtask]
-```
-
-### Create Implementation Report
-
-Create `docs/specs/[spec-name]/implementation/[task-group].md`:
-
-```markdown
-# Implementation: [Task Group Title]
-
-**Date:** [Date]
-**Task Group:** [Number and title]
-
-## Summary
-[Brief overview]
-
-## Architecture Approach
-[Which approach was selected and why]
-
-## Files Modified
-- `path/to/file.ext` — [What changed]
-
-## Files Created
-- `path/to/file.ext` — [Purpose]
-
-## Key Details
-[Important implementation notes]
-
-## Integration Points
-[How this integrates with existing code]
-
-## Testing Notes
-[Tests written or considerations]
 ```
 
 ---
@@ -317,55 +281,15 @@ After addressing review issues, launch `dev-kit:code-simplifier` agent to:
 
 ## Phase 7: Verification
 
-### Verify tasks.md Updated
+### Verify plan.md Updated
 
-Confirm all checkboxes for this task group are marked `[x]`.
+Confirm all checkboxes for this task group are marked `[x]` in plan.md.
 
 ### Run Tests
 
 1. Identify test command (package.json, Makefile, etc.)
 2. Run full test suite
 3. Capture results — do NOT attempt to fix failures
-
-### Create Verification Report
-
-Create `docs/specs/[spec-name]/verification/[task-group]-verification.md`:
-
-```markdown
-# Verification Report: [Task Group Title]
-
-**Spec:** [spec-name]
-**Task Group:** [Number and title]
-**Date:** [Date]
-**Status:** ✅ Passed | ⚠️ Issues | ❌ Failed
-
-## Executive Summary
-[2-3 sentences on results]
-
-## Task Completion
-- [x] [Task group and subtasks listed]
-
-## Implementation Documentation
-- [x] Report: `implementation/[task-group].md`
-- [x] tasks.md updated
-
-## Code Quality
-- Simplicity/DRY: [Summary]
-- Correctness: [Summary]
-- Conventions: [Summary]
-- Issues: [List or "None"]
-
-## Test Results
-- Total: [N]
-- Passing: [N]
-- Failing: [N]
-
-### Failed Tests
-[List or "None"]
-
-## Next Steps
-[Recommendations]
-```
 
 ### Display Summary
 
@@ -397,4 +321,4 @@ Would you like to implement another task group?
 - **Read files identified by agents** before proceeding
 - **Invoke all relevant skills** during implementation
 - **Do not fix failing tests** — document them only
-- **Update tasks.md** as work completes
+- **Update plan.md** as work completes

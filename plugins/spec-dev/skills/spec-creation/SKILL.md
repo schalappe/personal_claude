@@ -57,16 +57,17 @@ Every spec creates this structure:
 
 ```text
 docs/specs/YYYY-MM-DD-feature-name/
-├── planning/
-│   ├── requirements.md       # Gathered requirements (from shaping)
-│   └── visuals/              # Mockups, wireframes, screenshots
-├── implementation/           # Implementation reports (created during implementation)
-└── spec.md                   # The final specification document
+├── shape.md          # Context, decisions, scope
+├── plan.md           # Specification + implementation tasks
+├── references.md     # Code pointers from exploration
+├── visuals/          # Mockups, wireframes, screenshots
+├── implementation/   # Implementation reports (created during implementation)
+└── verification/     # Verification reports
 ```
 
 ## Specification Template
 
-Use this exact structure for `spec.md`:
+Use this exact structure for the specification section of `plan.md`:
 
 ```markdown
 # Specification: [Feature Name]
@@ -107,9 +108,9 @@ Use this exact structure for `spec.md`:
 - [Up to 10 specific features that MUST NOT be built]
 ```
 
-## Requirements Template
+## Shape Template
 
-Use this structure for `planning/requirements.md`:
+Use this structure for `shape.md`:
 
 ```markdown
 # Spec Requirements: [Spec Name]
@@ -225,7 +226,6 @@ Working examples demonstrating expected output format:
 
 This skill provides domain knowledge for:
 
-- **`/shape-spec`** - Gathers requirements (shaping phase procedure)
-- **`/write-spec`** - Creates specification document (writing phase procedure)
+- **`/shape-spec`** - Unified command that gathers requirements, creates specification, and breaks down tasks (runs in plan mode)
 
-The commands contain the step-by-step procedures; this skill provides the philosophy, templates, and quality standards.
+The command contains the step-by-step procedure; this skill provides the philosophy, templates, and quality standards.

@@ -29,9 +29,9 @@ SPEC_NAME="kebab-case-feature-name"
 DATED_SPEC_NAME="${TODAY}-${SPEC_NAME}"
 SPEC_PATH="docs/specs/$DATED_SPEC_NAME"
 
-mkdir -p $SPEC_PATH/planning
-mkdir -p $SPEC_PATH/planning/visuals
+mkdir -p $SPEC_PATH/visuals
 mkdir -p $SPEC_PATH/implementation
+mkdir -p $SPEC_PATH/verification
 ```
 
 **Naming conventions**:
@@ -111,7 +111,7 @@ Provide file/folder paths or names of these features if they exist.
 ```text
 Do any design mockups, wireframes, or screenshots exist that could guide development?
 
-If yes, place them in: `[spec-path]/planning/visuals/`
+If yes, place them in: `[spec-path]/visuals/`
 
 Use descriptive file names like:
 - homepage-mockup.png
@@ -133,7 +133,7 @@ When user responds:
 
 ```bash
 # Users often add files without mentioning them!
-ls -la [spec-path]/planning/visuals/ 2>/dev/null | grep -E '\.(png|jpg|jpeg|gif|svg|pdf)$' || echo "No visual files found"
+ls -la [spec-path]/visuals/ 2>/dev/null | grep -E '\.(png|jpg|jpeg|gif|svg|pdf)$' || echo "No visual files found"
 ```
 
 **If visual files found**:
@@ -188,14 +188,14 @@ Please provide these additional details.
 
 **Then STOP and wait.**
 
-### 7. Requirements Documentation
+### 7. Shape Documentation
 
-After all questions answered, save to `[spec-path]/planning/requirements.md`:
+After all questions answered, save to `[spec-path]/shape.md`:
 
 **Use this exact structure**:
 
 ```markdown
-# Spec Requirements: [Spec Name]
+# Shape: [Spec Name]
 
 ## Initial Description
 [User's original description verbatim]
@@ -285,21 +285,16 @@ No visual assets provided.
 Display:
 
 ```markdown
-Spec initialized successfully!
+Shaping complete!
 
-Spec folder created: `[spec-path]`
-- Requirements gathered
-- Visual assets: [Found X files / No files provided]
+Spec folder: `[spec-path]`
+- Context gathered: [X] questions answered
+- Visual assets: [Found Y files / No files provided]
+- Reusability: [Z similar features identified / None identified]
 
-Requirements research complete!
-- Processed [X] clarifying questions
-- Visual check performed: [Found and analyzed Y files / No files found]
-- Reusability opportunities: [Identified Z similar features / None identified]
-- Requirements documented comprehensively
+Shape saved to: `[spec-path]/shape.md`
 
-Requirements saved to: `[spec-path]/planning/requirements.md`
-
-Run `/write-spec` to create the spec.md document.
+Proceeding to codebase exploration and specification writing...
 ```
 
 ## Best Practices
@@ -332,7 +327,7 @@ Run `/write-spec` to create the spec.md document.
 ```bash
 # Asked about visuals, user said "no"
 # But MUST check anyway:
-ls -la docs/specs/2025-11-16-feature/planning/visuals/
+ls -la docs/specs/2025-11-16-feature/visuals/
 
 # Finds: mockup.png, wireframe.jpg
 
@@ -371,7 +366,7 @@ the application's existing styling instead?"
 
 ## Quality Checklist
 
-Before moving to writing phase:
+Before proceeding to exploration phase:
 
 - [ ] Spec folder created with proper YYYY-MM-DD-name format
 - [ ] Product context files read (mission, roadmap, tech-stack)
@@ -382,8 +377,7 @@ Before moving to writing phase:
 - [ ] Mandatory bash visual check performed
 - [ ] All visual files analyzed with Read tool
 - [ ] Follow-ups asked if needed (max 1-3)
-- [ ] All answers documented to requirements.md exactly as stated
+- [ ] All answers documented to shape.md exactly as stated
 - [ ] Visual insights documented based on actual analysis
 - [ ] Similar feature paths noted for later reference
 - [ ] Completion message output
-- [ ] User directed to run `/write-spec` next

@@ -1,17 +1,17 @@
 # Spec Dev Plugin
 
-A Claude Code plugin for specification-driven development. Provides a complete workflow from product planning through implementation.
+A Claude Code plugin for specification-driven development. Provides a streamlined workflow from product planning through implementation.
 
 ## Workflow Overview
 
-The plugin provides a 5-step development workflow:
+The plugin provides a 3-step development workflow:
 
 ```text
-/plan-product → /shape-spec → /write-spec → /create-tasks → /implement-task
-     ↓              ↓             ↓              ↓               ↓
-  Mission      Requirements   Specification    Tasks         Code
-  Roadmap      Visuals        Architecture     Acceptance    Tests
-  Tech Stack   Scope          Code Reuse       Order         Reports
+/plan-product → /shape-spec → /implement-task
+     ↓              ↓               ↓
+  Mission      Shape + Spec      Code
+  Roadmap      + Tasks           Tests
+  Tech Stack   (plan mode)       Reports
 ```
 
 ## Commands
@@ -28,33 +28,20 @@ Create foundational product documentation: mission, roadmap, and tech stack.
 
 ### /spec-dev:shape-spec
 
-Gather and document requirements for a new feature through structured questioning.
+Shape a feature from idea to actionable implementation plan. Runs in plan mode and combines requirements gathering, specification writing, and task breakdown into a single flow.
 
 ```bash
+# Must be in plan mode first
 /spec-dev:shape-spec [feature-description]
 ```
 
-**Output**: `docs/specs/[date]-[name]/planning/requirements.md`
+**Requires**: Plan mode active
 
-### /spec-dev:write-spec
-
-Transform gathered requirements into a comprehensive specification document.
-
-```bash
-/spec-dev:write-spec [spec-name]
-```
-
-**Output**: `docs/specs/[date]-[name]/spec.md`
-
-### /spec-dev:create-tasks
-
-Transform specifications into an actionable task list with strategic grouping.
-
-```bash
-/spec-dev:create-tasks [spec-name]
-```
-
-**Output**: `docs/specs/[date]-[name]/tasks.md`
+**Output**:
+- `docs/specs/[date]-[name]/shape.md` — Context and decisions
+- `docs/specs/[date]-[name]/plan.md` — Specification + tasks
+- `docs/specs/[date]-[name]/references.md` — Code pointers
+- `docs/specs/[date]-[name]/visuals/` — Mockups if provided
 
 ### /spec-dev:implement-task
 
@@ -65,16 +52,6 @@ Implement a single task group with deep codebase understanding and quality revie
 ```
 
 **Output**: Implemented code, implementation report, verification report
-
-### /spec-dev:implement-task-loop
-
-Implement a task group autonomously using Ralph Loop for iterative development.
-
-```bash
-/spec-dev:implement-task-loop [spec-name] [task-group-number]
-```
-
-**Output**: Implemented code with tests passing
 
 ## Skills
 
@@ -104,11 +81,8 @@ spec-dev/
 │   └── plugin.json           # Plugin manifest
 ├── commands/
 │   ├── plan-product.md       # Step 1: Product planning
-│   ├── shape-spec.md         # Step 2: Requirements gathering
-│   ├── write-spec.md         # Step 3: Specification writing
-│   ├── create-tasks.md       # Step 4: Task breakdown
-│   ├── implement-task.md     # Step 5: Implementation
-│   └── implement-task-loop.md # Step 5 (alt): Autonomous implementation
+│   ├── shape-spec.md         # Step 2: Shape, spec, and tasks (unified)
+│   └── implement-task.md     # Step 3: Implementation
 ├── skills/
 │   ├── product-planning/     # Product documentation skill
 │   │   ├── SKILL.md
@@ -136,13 +110,12 @@ docs/
 │   └── tech-stack.md   # Technical decisions
 └── specs/
     └── YYYY-MM-DD-feature-name/
-        ├── planning/
-        │   ├── requirements.md   # Gathered requirements
-        │   └── visuals/          # Mockups, wireframes
-        ├── implementation/       # Implementation reports
-        ├── verification/         # Verification reports
-        ├── spec.md               # Feature specification
-        └── tasks.md              # Implementation tasks
+        ├── shape.md          # Context, decisions, scope
+        ├── plan.md           # Specification + implementation tasks
+        ├── references.md     # Code pointers from exploration
+        ├── visuals/          # Mockups, wireframes
+        ├── implementation/   # Implementation reports
+        └── verification/     # Verification reports
 ```
 
 ## License

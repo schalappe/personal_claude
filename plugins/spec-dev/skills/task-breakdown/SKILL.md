@@ -76,7 +76,7 @@ For detailed patterns, see `references/common-patterns.md`.
 
 ## Task Template
 
-Use this structure for `tasks.md`:
+Use this structure for the "Implementation Tasks" section of `plan.md`:
 
 ```markdown
 # Task Breakdown: [Feature Name]
@@ -200,6 +200,6 @@ Working examples in `examples/`:
 
 This skill provides domain knowledge for:
 
-- **`/create-tasks`** - Creates task breakdown from specification (procedure)
+- **`/shape-spec`** - Unified command that includes task breakdown as part of the plan.md output (runs in plan mode)
 
 The command contains the step-by-step procedure; this skill provides the sizing rules, templates, and quality standards.
